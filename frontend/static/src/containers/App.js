@@ -7,7 +7,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 
@@ -47,28 +46,20 @@ export default function App() {
     <Router>
       <div>
         <Nav defaultActiveKey="/home">
-          <Nav.Item componentClass='span'>
-            <Nav.Link>
-              <Link to="/" className="nav-link">Home</Link>
-            </Nav.Link>
+          <Nav.Item className='span'>
+            <Nav.Link href ="/" className="nav-link">Home</Nav.Link>
           </Nav.Item>
 
-          <Nav.Item componentClass='span'>
-            <Nav.Link>
-              <Link to="/SignUp" className="nav-link">Sign Up</Link>
-            </Nav.Link>
+          <Nav.Item>
+            <Nav.Link href ="/SignUp" className="nav-link">Sign Up</Nav.Link>
           </Nav.Item>
 
-          <Nav.Item componentClass='span'>
-            <Nav.Link>
-              <Link to="/LogIn" className="nav-link">Log In</Link>
-            </Nav.Link>
+          <Nav.Item>
+            <Nav.Link href ="/Login" className="nav-link">Log In</Nav.Link>
           </Nav.Item>
 
-          <Nav.Item componentClass='span'>
-            <Nav.Link>
-              <Link to="/LogOut" className="nav-link">Log Out</Link>
-            </Nav.Link>
+          <Nav.Item>
+            <Nav.Link onClick={logOut} className="nav-link">Log Out</Nav.Link>
           </Nav.Item>
         </Nav>
 
@@ -94,6 +85,6 @@ function Home() {
   return <h2>Home</h2>;
 }
 
-function LogOut() {
-  return <h2>Log Out</h2>
+function logOut() {
+  console.log('You Logged out')
 }

@@ -7,6 +7,7 @@ import axios from "axios";
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL
 
 class LogIn extends Component {
 
@@ -22,10 +23,16 @@ class LogIn extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  handleClick(e) {
+    e.preventDefault();
+    console.log('The link was clicked.');
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    axios.post('/api/v1/rest-auth/login/', this.state)
+    axios.post(`${BASE_URL}/rest-auth/login/`, this.state)
     .then(res => {
+        console.log('one', res)
         localStorage.setItem('my-app-user', JSON.stringify(res.data));
         this.props.history.push('/');
         window.location.reload(false);
@@ -38,11 +45,6 @@ class LogIn extends Component {
   handleChange(e) {
     this.setState({[e.target.name]: e.target.value});
   }
-
-    handleClick(e) {
-      e.preventDefault();
-      console.log('The link was clicked.');
-    }
 
   render() {
 
@@ -70,7 +72,7 @@ class LogIn extends Component {
                         Don't have an acount? <a  href="/signup/"><span className="login-Btn SignUp-btn">Click here to Sign up.</span></a>
                         </Form.Text>
                     </Form.Group>
-                    <Button className="login-Btn" onclick={handleClick}>Login</Button>
+                    <Button to="/" className="login-Btn" type="submit">Login</Button>
                 </Form>
             </div>
     )

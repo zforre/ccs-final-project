@@ -7,6 +7,8 @@ import Button from 'react-bootstrap/Button';
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
 class SignUp extends Component {
 
   constructor(props) {
@@ -25,8 +27,9 @@ class SignUp extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    axios.post('/api/v1/rest-auth/registration/', this.state)
+    axios.post(`${BASE_URL}/rest-auth/registration/`, this.state)
     .then(res => {
+        console.log('two', res)
         localStorage.setItem('my-app-user', JSON.stringify(res.data));
         this.props.history.push('/');
     })
@@ -40,7 +43,7 @@ class SignUp extends Component {
   }
 
   render() {
-      console.log(this.props)
+    console.log('props', this.props)
     return  (
         <div className="d-flex create-profile-container">
             <Form className="profile-form" onSubmit={this.handleSubmit}>
@@ -64,7 +67,7 @@ class SignUp extends Component {
                     <Form.Label className="Form-label"> Confirm Password:</Form.Label>
                     <Form.Control  type="password" name="password2" value={this.state.password} onChange={this.handleChange} placeholder='Enter password' required />
                 </Form.Group>
-                <Button className="login-Btn">Sign Up</Button>
+                <Button className="login-Btn" type='submit'>Sign Up</Button>
             </Form>
       </div>
     )
