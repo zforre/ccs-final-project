@@ -172,8 +172,10 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#std:setting-SITE_ID
 SITE_ID = 1
 
-# AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
-# AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
-AWS_STORAGE_BUCKET_NAME = 'ccs-final-project-zforre'
+AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+AWS_STORAGE_BUCKET_NAME = 'ccs-student-zforre'
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
+
+CATALOG_BEER_API_KEY = os.environ['CATALOG_BEER_API_KEY']

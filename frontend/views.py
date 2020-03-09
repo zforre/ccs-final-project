@@ -6,7 +6,9 @@ from django.http import HttpResponse
 from django.conf import settings
 
 
+
 class IndexView(View):
+
     """
     Serves the compiled frontend entry point (only works if you have run `npm
     run build`).
@@ -26,3 +28,5 @@ class IndexView(View):
                 """,
                 status=501,
             )
+    
+    
