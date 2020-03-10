@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import {Form, Button} from 'react-bootstrap';
 import '../containers/App.css';
 import axios from "axios";
-// import Header from "./Header";
+
 
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
@@ -35,7 +34,7 @@ class LogIn extends Component {
     .then(res => {
         console.log('one', res)
         localStorage.setItem('my-app-user', JSON.stringify(res.data));
-        this.props.history.push('/');
+        // this.props.history.push('/');
         window.location.reload(false);
     })
     .catch(error => {
