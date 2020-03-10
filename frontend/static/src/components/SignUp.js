@@ -27,7 +27,7 @@ class SignUp extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    axios.post(`${BASE_URL}/rest-auth/registration/`, this.state)
+    axios.post('api/v1//rest-auth/registration/', this.state)
     .then(res => {
         console.log('two', res)
         localStorage.setItem('my-app-user', JSON.stringify(res.data));

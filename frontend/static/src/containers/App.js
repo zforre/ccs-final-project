@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Nav from 'react-bootstrap/Nav';
 import SignUp from '../components/SignUp.js'
 import LogIn from '../components/LogIn.js'
+import GroupList from '../components/GroupList.js'
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -61,11 +62,18 @@ export default function App() {
           <Nav.Item>
             <Nav.Link onClick={logOut} className="nav-link">Log Out</Nav.Link>
           </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link href ="/GroupList"className="nav-link">Collections</Nav.Link>
+          </Nav.Item>
         </Nav>
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
+        <Route path="/GroupList">
+            <GroupList />
+          </Route>
           <Route path="/LogIn">
             <LogIn />
           </Route>
