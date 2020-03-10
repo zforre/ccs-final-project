@@ -44,7 +44,7 @@ class SignUp extends Component {
   }
 
   render() {
-    console.log('props', this.props)
+    // console.log('props', this.props)
     return  (
         <div className="d-flex justify-content-center create-profile-container mt-5">
             <Form className="profile-form" onSubmit={this.handleSubmit}>

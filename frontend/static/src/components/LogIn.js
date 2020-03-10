@@ -31,7 +31,7 @@ class LogIn extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    axios.post(`${BASE_URL}rest-auth/login/`, this.state)
+    axios.post(`${BASE_URL}/rest-auth/login/`, this.state)
     .then(res => {
         console.log('one', res)
         localStorage.setItem('my-app-user', JSON.stringify(res.data));
