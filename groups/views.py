@@ -5,10 +5,10 @@ from .models import Group
 from .serializers import GroupSerializer
 
 
-class GroupList(generics.ListCreateAPIView):
+class GroupListCreate(generics.ListCreateAPIView):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
 
-class GroupDetail(generics.RetrieveUpdateDestroyAPIView):
+class GroupRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
