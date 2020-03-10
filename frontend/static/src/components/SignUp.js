@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from "axios";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import '../containers/App.css';
 
 
 axios.defaults.xsrfCookieName = 'csrftoken';
@@ -27,7 +28,7 @@ class SignUp extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    axios.post('api/v1//rest-auth/registration/', this.state)
+    axios.post(`${BASE_URL}/rest-auth/registration/`, this.state)
     .then(res => {
         console.log('two', res)
         localStorage.setItem('my-app-user', JSON.stringify(res.data));
@@ -45,7 +46,7 @@ class SignUp extends Component {
   render() {
     console.log('props', this.props)
     return  (
-        <div className="d-flex create-profile-container">
+        <div className="d-flex justify-content-center create-profile-container mt-5">
             <Form className="profile-form" onSubmit={this.handleSubmit}>
                 <h2 className="form-title d-flex justify-content-center"><span>Sign Up</span></h2>
                 <Form.Group>

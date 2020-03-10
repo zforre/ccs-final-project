@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import '../containers/App.css';
 import axios from "axios";
 // import Header from "./Header";
 
@@ -30,7 +31,7 @@ class LogIn extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    axios.post('api/v1/rest-auth/login/', this.state)
+    axios.post(`${BASE_URL}rest-auth/login/`, this.state)
     .then(res => {
         console.log('one', res)
         localStorage.setItem('my-app-user', JSON.stringify(res.data));
@@ -50,7 +51,7 @@ class LogIn extends Component {
 
 
     return  (
-            <div className="d-flex create-profile-container">
+            <div className="d-flex justify-content-center create-profile-container mt-5">
                 <Form className="profile-form" onSubmit={this.handleSubmit}>
                     <h2 className="form-title d-flex justify-content-center">Login</h2>
                     <Form.Group >
