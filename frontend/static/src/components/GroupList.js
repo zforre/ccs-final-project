@@ -6,7 +6,7 @@ import axios from 'axios';
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
-const BASE_URL = process.env.REACT_APP_BASE_URL
+const BASE_URL= process.env.REACT_APP_BASE_URL
 
 class GroupList extends Component {
     constructor(props) {
