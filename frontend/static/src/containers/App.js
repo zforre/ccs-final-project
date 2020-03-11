@@ -103,6 +103,7 @@ function Home() {
 function logOut() {
   axios.post(`${BASE_URL}/rest-auth/logout/`)
     .then(res => {
+        localStorage.removeItem('my-app-user');
         console.log('one', res)
     })
     .catch(error => {
