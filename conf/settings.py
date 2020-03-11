@@ -172,6 +172,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # https://docs.djangoproject.com/en/3.0/ref/settings/#std:setting-SITE_ID
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
 SITE_ID = 1
 
 

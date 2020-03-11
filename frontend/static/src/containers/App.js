@@ -4,6 +4,7 @@ import SignUp from '../components/SignUp.js'
 import LogIn from '../components/LogIn.js'
 import GroupList from '../components/GroupList.js'
 import GroupDetail from '../components/GroupDetail.js'
+import GroupForm from '../components/GroupForm.js'
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -75,6 +76,9 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
+        <Route path="/GroupForm">
+            <GroupForm />
+          </Route>
           <Route path="/GroupDetail">
             <GroupDetail />
           </Route>

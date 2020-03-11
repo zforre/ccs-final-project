@@ -42,7 +42,7 @@ class GroupList extends Component {
     }
 
     handleCreate(group) {
-        axios.post(`${BASE_URL}/api/v1/${this.state.group}`)
+        axios.post(`${BASE_URL}/api/v1/${group}`)
         .then(res => {
             console.log(res);
             console.log(res.data);
@@ -81,7 +81,7 @@ class GroupList extends Component {
                             </Card.Body>
                         </Card>
                     </CardDeck>)}
-                <Button onClick={() => this.handleCreate(this.group)} variant="outline-primary" className="mt-3">Create new Collection</Button>
+                <Button href="/GroupForm" variant="outline-primary" className="mt-3">Create new Collection</Button>
             </div>
         )
     }
