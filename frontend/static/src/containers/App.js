@@ -16,37 +16,6 @@ import axios from "axios";
 const BASE_URL = process.env.REACT_APP_BASE_URL
 
 
-
-// import axios from 'axios'
-
-// class App extends Component {
-//   constructor(props) {
-//     super(props);
-//       this.state = {
-//         beers: []
-
-//       }
-//   }
-
-//   componentDidMount() {
-    
-//   }
-  
-//   render() {
-    
-//     return (
-//       <div className="App">
-
-//       <SignUp />
-//       <LogIn />
-        
-//       </div>
-//     );
-//   }
-// }
-
-// export default App;
-
 export default function App() {
   return (
     <Router>
@@ -54,6 +23,10 @@ export default function App() {
         <Nav defaultActiveKey="/home">
           <Nav.Item className='span'>
             <Nav.Link href ="/">Home</Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link href ="/GroupList">Profile</Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
@@ -67,30 +40,16 @@ export default function App() {
           <Nav.Item>
             <Nav.Link onClick={logOut}>Log Out</Nav.Link>
           </Nav.Item>
-
-          <Nav.Item>
-            <Nav.Link href ="/GroupList">Collections</Nav.Link>
-          </Nav.Item>
         </Nav>
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-        <Route path="/GroupForm">
-            <GroupForm />
-          </Route>
-          <Route path="/GroupDetail">
-            <GroupDetail />
-          </Route>
-          <Route path="/GroupList">
-            <GroupList />
-          </Route>
-          <Route path="/LogIn">
-            <LogIn />
-          </Route>
-          <Route path="/SignUp">
-            <SignUp />
-          </Route>
+          <Route path="/GroupForm" component={GroupForm}/>
+          <Route path="/GroupDetail/:id" component={GroupDetail}/>
+          <Route path="/GroupList" component={GroupList}/>
+          <Route path="/LogIn" component={LogIn}/>
+          <Route path="/SignUp" component={SignUp}/>
           <Route path="/">
             <Home />
           </Route>
@@ -114,3 +73,4 @@ function logOut() {
         console.log(error);
     });
 }
+

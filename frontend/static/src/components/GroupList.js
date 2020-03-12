@@ -3,6 +3,7 @@ import {Card, CardDeck, Button} from 'react-bootstrap';
 import '../containers/App.css';
 import axios from 'axios';
 
+
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
@@ -22,7 +23,6 @@ class GroupList extends Component {
         }
 
         this.handleDelete = this.handleDelete.bind(this);
-        this.handleCreate = this.handleCreate.bind(this);
     }
 
     handleDelete(group) {
@@ -41,18 +41,6 @@ class GroupList extends Component {
         });
     }
 
-    handleCreate(group) {
-        axios.post(`${BASE_URL}/api/v1/${group}`)
-        .then(res => {
-            console.log(res);
-            console.log(res.data);
-            let groups = [...this.state.groups];
-            groups.push(group);
-            this.setState({groups: groups})
-            
-        })
-    }
-
     componentDidMount() {
         axios.get(`${BASE_URL}/api/v1/`)
         .then(result => {
@@ -65,9 +53,10 @@ class GroupList extends Component {
     }
 
     render() {
+        console.log('group list', this.props)
         console.log(this.state.groups)
         return(
-            <div className="collect">
+            <div className="collect ">
                 <h2 className="mt-5">Your Collections</h2>
                     {this.state.groups.map(group => 
                     <CardDeck key={group.id} style={{ width: '35rem' }}>
@@ -76,12 +65,12 @@ class GroupList extends Component {
                             <Card.Body>
                                 <Card.Title>{group.title}</Card.Title>
                                 <Card.Text>{group.description}</Card.Text>
-                                <Card.Link href="/GroupDetail" className="alert-link">View Collection</Card.Link>
-                                <Card.Link onClick={() => this.handleDelete(group)} href="#" type="submit"className="text-danger">Remove</Card.Link>
+                                <Card.Link href={`/GroupDetail/${group.id}`} className="alert-link">View Collection</Card.Link>
+                                <Card.Link onClick={() => this.handleDelete(group)} href="#" type="submit" className="text-danger">Remove</Card.Link>
                             </Card.Body>
                         </Card>
                     </CardDeck>)}
-                <Button href="/GroupForm" variant="outline-primary" className="mt-3">Create new Collection</Button>
+                <Button href="/GroupForm" variant="outline-primary" className="mt-5">Create new Collection</Button>
             </div>
         )
     }

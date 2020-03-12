@@ -12,32 +12,53 @@ class GroupDetail extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            group: null,
+            image: null,
+            title: null,
+            description: null,
 
+            
+            
         }
     }
 
     componentDidMount() {
+       
+        const { id } = this.props.match.params
         
+
+        axios.get(`${BASE_URL}/api/v1/${id}`)
+        .then((res) => {
+            console.log(res.data)
+            this.setState(() => ( res.data ))
+        })
+        .catch(error => {
+            console.log(error);
+        })
     }
 
     render() {
-        
+        // console.log(this.state);
         return(
-            <CardDeck>
-                <Card>
-                    <Card.Img variant="top" src="holder.js/100px160" />
-                    <Card.Body>
-                    <Card.Title>Card title</Card.Title>
+            <div className="row justify-content-center">
+            <CardDeck className="mt-5 col-11">
+                <Card className="bg-dark text-white">
+                    
+                    <Card.Img src={this.state.image} variant="top" />
+                    
+                    <Card.ImgOverlay >
+                    <Card.Title> <h1>{this.state.title} </h1></Card.Title>
                     <Card.Text>
-                        This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.
+                        <h3>{this.state.description}</h3>
                     </Card.Text>
-                    </Card.Body>
+                    
+                    </Card.ImgOverlay>
                     <Card.Footer>
                     <small className="text-muted">Last updated 3 mins ago</small>
                     </Card.Footer>
                 </Card>
             </CardDeck>
+            </div>
             
         )
     }
