@@ -16,9 +16,6 @@ class GroupDetail extends Component {
             image: null,
             title: null,
             description: null,
-
-            
-            
         }
     }
 
