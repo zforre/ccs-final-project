@@ -6,6 +6,7 @@ import GroupList from '../components/GroupList.js'
 import GroupDetail from '../components/GroupDetail.js'
 import GroupForm from '../components/GroupForm.js'
 import Beer from '../components/Beer.js'
+import {Navbar, Form, FormControl, Button} from 'react-bootstrap';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -21,28 +22,19 @@ export default function App() {
   return (
     <Router>
       <div>
-        <Nav defaultActiveKey="/home">
-          <Nav.Item className='span'>
-            <Nav.Link href ="/">Home</Nav.Link>
-          </Nav.Item>
-
-          <Nav.Item>
-            <Nav.Link href ="/GroupList">Profile</Nav.Link>
-          </Nav.Item>
-
-          <Nav.Item>
-            <Nav.Link href ="/SignUp">Sign Up</Nav.Link>
-          </Nav.Item>
-
-          <Nav.Item>
-            <Nav.Link href ="/Login">Log In</Nav.Link>
-          </Nav.Item>
-
-          <Nav.Item>
-            <Nav.Link onClick={logOut}>Log Out</Nav.Link>
-          </Nav.Item>
-        </Nav>
-
+        <Navbar bg="dark" variant="dark" defaultActiveKey="/home">
+          <Navbar.Brand href="/">brewSpotter</Navbar.Brand>
+            <Nav className="mr-auto">
+              <Nav.Link href="/GroupList">Profile</Nav.Link>
+              <Nav.Link href="/SignUp">Sign Up</Nav.Link>
+              <Nav.Link href="/Login">Log In</Nav.Link>
+              <Nav.Link onClick={logOut}>Log Out</Nav.Link>
+            </Nav>
+            <Form inline>
+              <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+              <Button variant="outline-primary">Search</Button>
+            </Form>
+        </Navbar>
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>

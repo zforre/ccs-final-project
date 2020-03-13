@@ -43,13 +43,13 @@ class GroupDetail extends Component {
                 <Card className="bg-dark text-white">
                     
                     <Card.Img src={this.state.image} variant="top" className="blur" />
-                    <Beer />
                     <Card.Body >
                     <Card.Title> <h1>{this.state.title} </h1></Card.Title>
                     <Card.Text>
                         <p>{this.state.description}</p>
                     </Card.Text>
                     <Card.Link href="#" className="alert-link">Edit Collection</Card.Link>
+                    <Beer />
                     <div className="w-100"></div>
                     <small className="text-muted">Last updated 3 mins ago</small>
                     </Card.Body>

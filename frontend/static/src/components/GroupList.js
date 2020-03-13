@@ -70,7 +70,7 @@ class GroupList extends Component {
                             </Card.Body>
                         </Card>
                     </CardDeck>)}
-                <Button href="/GroupForm" variant="outline-primary" className="mt-5 mb-5">Create new Collection</Button>
+                <Button href="/GroupForm" variant="primary" className="mt-5 mb-5">Create new Collection</Button>
             </div>
         )
     }

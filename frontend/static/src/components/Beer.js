@@ -33,18 +33,14 @@ class Beer extends Component {
     render() {
         // console.log(this.state);
         return(
-            <div className="row justify-content-center">
-                <Figure>
-                    <Figure.Image
-                        width={171}
-                        height={180}
-                        alt="171x180"
-                        src={this.state.image}
-                    />
-                    <Figure.Caption>
-                        {this.state.name}
+            <div>
+            {this.state.beers.map(beer => 
+                <Figure key={beer.id} className="mt-3 mr-3 beeritem">
+                    <Figure.Image width={120} height={120} alt="beer" src={beer.image}/>
+                    <Figure.Caption className="text-white">
+                        {beer.name}
                     </Figure.Caption>
-                </Figure>
+                </Figure>)}
             </div>
             
         )
