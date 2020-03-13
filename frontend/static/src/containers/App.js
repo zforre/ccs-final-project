@@ -5,6 +5,7 @@ import LogIn from '../components/LogIn.js'
 import GroupList from '../components/GroupList.js'
 import GroupDetail from '../components/GroupDetail.js'
 import GroupForm from '../components/GroupForm.js'
+import Beer from '../components/Beer.js'
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -47,6 +48,7 @@ export default function App() {
         <Switch>
           <Route path="/GroupForm" component={GroupForm}/>
           <Route path="/GroupDetail/:id" component={GroupDetail}/>
+          <Route path="/Beer" component={Beer}/>
           <Route path="/GroupList" component={GroupList}/>
           <Route path="/LogIn" component={LogIn}/>
           <Route path="/SignUp" component={SignUp}/>

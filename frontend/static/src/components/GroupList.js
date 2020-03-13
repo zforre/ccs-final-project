@@ -66,7 +66,7 @@ class GroupList extends Component {
                                 <Card.Title>{group.title}</Card.Title>
                                 <Card.Text>{group.description}</Card.Text>
                                 <Card.Link href={`/GroupDetail/${group.id}`} className="alert-link">View Collection</Card.Link>
-                                <Card.Link onClick={() => this.handleDelete(group)} href="#" type="submit" className="text-danger">Remove</Card.Link>
+                                <Card.Link onClick={() => this.handleDelete(group)} type="submit" className="text-danger">Remove</Card.Link>
                             </Card.Body>
                         </Card>
                     </CardDeck>)}

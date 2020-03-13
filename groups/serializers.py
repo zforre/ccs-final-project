@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Group
+from .models import Group, Beer
 
 
 class GroupSerializer(serializers.ModelSerializer):
@@ -8,7 +8,7 @@ class GroupSerializer(serializers.ModelSerializer):
         model = Group
         fields = ('id', 'title', 'description', 'image', 'is_public',)
 
-# class BeerSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Beer
-#         fields = ('title', 'description', 'image',)
+class BeerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Beer
+        fields = ('id', 'name', 'description', 'image',)

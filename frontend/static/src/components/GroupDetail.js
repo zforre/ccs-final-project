@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import Beer from './Beer.js'
 import {CardDeck, Card} from 'react-bootstrap'
 import '../containers/App.css';
 import axios from 'axios';
 
 axios.defaults.xsrfCookieName = 'csrftoken';
-axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'; 
 
 const BASE_URL = process.env.REACT_APP_BASE_URL
 
@@ -26,7 +27,7 @@ class GroupDetail extends Component {
 
         axios.get(`${BASE_URL}/api/v1/${id}`)
         .then((res) => {
-            console.log(res.data)
+            // console.log(res.data)
             this.setState(() => ( res.data ))
         })
         .catch(error => {
@@ -42,11 +43,11 @@ class GroupDetail extends Component {
                 <Card className="bg-dark text-white">
                     
                     <Card.Img src={this.state.image} variant="top" className="blur" />
-                    
+                    <Beer />
                     <Card.Body >
                     <Card.Title> <h1>{this.state.title} </h1></Card.Title>
                     <Card.Text>
-                        <h3>{this.state.description}</h3>
+                        <p>{this.state.description}</p>
                     </Card.Text>
                     <Card.Link href="#" className="alert-link">Edit Collection</Card.Link>
                     <div className="w-100"></div>
