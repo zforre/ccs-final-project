@@ -56,7 +56,7 @@ class GroupList extends Component {
         console.log('group list', this.props)
         console.log(this.state.groups)
         return(
-            <div className="collect ">
+            <div className="collect ml-5">
                 <h2 className="mt-5">Your Collections</h2>
                     {this.state.groups.map(group => 
                     <CardDeck key={group.id} style={{ width: '35rem' }}>
@@ -70,7 +70,7 @@ class GroupList extends Component {
                             </Card.Body>
                         </Card>
                     </CardDeck>)}
-                <Button href="/GroupForm" variant="outline-primary" className="mt-5">Create new Collection</Button>
+                <Button href="/GroupForm" variant="outline-primary" className="mt-5 mb-5">Create new Collection</Button>
             </div>
         )
     }

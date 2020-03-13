@@ -41,18 +41,17 @@ class GroupDetail extends Component {
             <CardDeck className="mt-5 col-11">
                 <Card className="bg-dark text-white">
                     
-                    <Card.Img src={this.state.image} variant="top" />
+                    <Card.Img src={this.state.image} variant="top" className="blur" />
                     
-                    <Card.ImgOverlay >
+                    <Card.Body >
                     <Card.Title> <h1>{this.state.title} </h1></Card.Title>
                     <Card.Text>
                         <h3>{this.state.description}</h3>
                     </Card.Text>
-                    
-                    </Card.ImgOverlay>
-                    <Card.Footer>
+                    <Card.Link href="#" className="alert-link">Edit Collection</Card.Link>
+                    <div className="w-100"></div>
                     <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
+                    </Card.Body>
                 </Card>
             </CardDeck>
             </div>
