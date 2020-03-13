@@ -50,7 +50,7 @@ class GroupForm extends Component {
         console.log(this.state);
         // axios.post('api/v1/', formData);
     
-        axios.post('api/v1/', formData, {
+        axios.post(`${BASE_URL}/api/v1/`, formData, {
           headers: {
             'content-type': 'multipart/form-data'
           }
