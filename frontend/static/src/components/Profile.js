@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import GroupList from './GroupList.js'
+import GroupList from '../components/GroupList.js'
 // import {Figure} from 'react-bootstrap'
 import '../containers/App.css';
 import axios from 'axios';
@@ -14,6 +14,7 @@ class Profile extends Component {
         super(props);
         this.state = {
             user: null,
+            username: '',
             bio: '',
             location: '',
             birth_date: ''
@@ -21,14 +22,14 @@ class Profile extends Component {
     }
 
     componentDidMount() {
-    //     axios.get(`${BASE_URL}/api/v1/beer`)
-    //     .then(res => {
-    //         console.log(res);
-    //         this.setState({beers: res.data})
-    //     })
-    //     .catch(error => {
-    //         console.log(error);
-    //     })
+        axios.get(`${BASE_URL}/api/v1/profile`)
+        .then(res => {
+            console.log(res);
+            this.setState({user: res.data})
+        })
+        .catch(error => {
+            console.log(error);
+        })
     }
 
     render() {
