@@ -6,6 +6,7 @@ import Profile from '../components/Profile.js'
 import GroupList from '../components/GroupList.js'
 import GroupDetail from '../components/GroupDetail.js'
 import GroupForm from '../components/GroupForm.js'
+import GroupUpdate from '../components/GroupEdit.js'
 import Beer from '../components/Beer.js'
 import {Navbar, Form, FormControl, Button} from 'react-bootstrap';
 import './App.css';
@@ -15,6 +16,7 @@ import {
   Route,
 } from "react-router-dom";
 import axios from "axios";
+import GroupEdit from '../components/GroupEdit.js';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL
 
@@ -40,6 +42,7 @@ export default function App() {
             renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/GroupForm" component={GroupForm}/>
+          <Route path="/GroupUpdate" component={GroupUpdate}/>
           <Route path="/GroupDetail/:id" component={GroupDetail}/>
           <Route path="/Beer" component={Beer}/>
           <Route path="/GroupList" component={GroupList}/>

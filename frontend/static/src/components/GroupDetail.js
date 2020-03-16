@@ -13,7 +13,8 @@ class GroupDetail extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            group: null,
+            groups: null,
+            id: '',
             image: null,
             title: null,
             description: null,
@@ -39,7 +40,8 @@ class GroupDetail extends Component {
         // console.log(this.state);
         return(
             <div className="row justify-content-center">
-            <CardDeck className="mt-5 col-11">
+                
+            <CardDeck key={this.state.id} className="mt-5 col-11">
                 <Card className="bg-dark text-white">
                     
                     <Card.Img src={this.state.image} variant="top" className="blur" />
@@ -48,7 +50,7 @@ class GroupDetail extends Component {
                     <Card.Text>
                         <p>{this.state.description}</p>
                     </Card.Text>
-                    <Card.Link href="#" className="alert-link">Edit Collection</Card.Link>
+                    <Card.Link href={`/GroupUpdate/${this.state.id}`} className="alert-link">Edit Collection</Card.Link>
                     <Beer />
                     <div className="w-100"></div>
                     <small className="text-muted">Last updated 3 mins ago</small>
