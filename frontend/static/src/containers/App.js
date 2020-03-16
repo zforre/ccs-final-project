@@ -42,7 +42,7 @@ export default function App() {
             renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/GroupForm" component={GroupForm}/>
-          <Route path="/GroupUpdate" component={GroupUpdate}/>
+          <Route path="/GroupUpdate/:id" component={GroupUpdate}/>
           <Route path="/GroupDetail/:id" component={GroupDetail}/>
           <Route path="/Beer" component={Beer}/>
           <Route path="/GroupList" component={GroupList}/>

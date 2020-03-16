@@ -13,6 +13,7 @@ class GroupUpdate extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            id: '',
             title: '',
             description: '',
             image: null,
@@ -52,7 +53,7 @@ class GroupUpdate extends Component {
 
         const { id } = this.props.match.params
     
-        axios.patch(`${BASE_URL}/api/v1/${id}`, formData, {
+        axios.put(`${BASE_URL}/api/v1/${id}/`, formData, {
           headers: {
             'content-type': 'multipart/form-data'
           }
