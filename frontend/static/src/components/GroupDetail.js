@@ -23,13 +23,15 @@ class GroupDetail extends Component {
     }
 
     componentDidMount() {
+
+        console.log(this.props)
        
         const { id } = this.props.match.params
         
 
         axios.get(`${BASE_URL}/api/v1/${id}`)
         .then((res) => {
-            // console.log(res.data)
+            console.log(res.data)
             this.setState(() => ( res.data ))
         })
         .catch(error => {
@@ -49,10 +51,10 @@ class GroupDetail extends Component {
                     <Card.Body >
                     <Card.Title> <h1>{this.state.title} </h1></Card.Title>
                     <Card.Text>
-                        <p>{this.state.description}</p>
+                        {this.state.description}
                     </Card.Text>
                     <Card.Link href={`/GroupUpdate/${this.state.id}`} className="alert-link">Edit Collection</Card.Link>
-                    <Beer />
+                    <Beer group={this.props.match.params.id} />
                     <div className="w-100"></div>
                     <small className="text-muted">Last updated 3 mins ago</small>
                     </Card.Body>

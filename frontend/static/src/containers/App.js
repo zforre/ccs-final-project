@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 import SignUp from '../components/SignUp.js'
 import LogIn from '../components/LogIn.js'
@@ -16,7 +16,6 @@ import {
   Route,
 } from "react-router-dom";
 import axios from "axios";
-import GroupEdit from '../components/GroupEdit.js';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL
 
@@ -28,7 +27,7 @@ export default function App() {
         <Navbar bg="dark" variant="dark" defaultactivekey="/home">
           <Navbar.Brand href="/">brewSpotter</Navbar.Brand>
             <Nav className="mr-auto">
-              <Nav.Link href="/Profile">Profile</Nav.Link>
+              <Nav.Link href="/Profile/user">Profile</Nav.Link>
               <Nav.Link href="/SignUp">Sign Up</Nav.Link>
               <Nav.Link href="/Login">Log In</Nav.Link>
               <Nav.Link onClick={logOut}>Log Out</Nav.Link>
@@ -43,10 +42,10 @@ export default function App() {
         <Switch>
           <Route path="/GroupForm" component={GroupForm}/>
           <Route path="/GroupUpdate/:id" component={GroupUpdate}/>
-          <Route path="/GroupDetail/:id" component={GroupDetail}/>
+          <Route path="/GroupDetail/:id/" component={GroupDetail}/>
           <Route path="/Beer" component={Beer}/>
           <Route path="/GroupList" component={GroupList}/>
-          <Route path="/Profile" component={Profile}/>
+          <Route path="/Profile/:user" component={Profile}/>
           <Route path="/LogIn" component={LogIn}/>
           <Route path="/SignUp" component={SignUp}/>
           <Route path="/">

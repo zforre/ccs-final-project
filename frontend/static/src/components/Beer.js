@@ -8,11 +8,13 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL
 
+
 class Beer extends Component {
     constructor(props) {
         super(props);
         this.state = {
             beers: [],
+            id: '',
             name: '',
             description: '',
             image: null
@@ -20,10 +22,13 @@ class Beer extends Component {
     }
 
     componentDidMount() {
-        axios.get(`${BASE_URL}/api/v1/beer`)
+        // console.log(props)
+        // const {id} = this.props.ma
+        
+        axios.get(`${BASE_URL}/api/v1/${this.props.group}/`)
         .then(res => {
-            console.log(res);
-            this.setState({beers: res.data})
+            console.log(res.data.beers);
+            this.setState({beers: res.data.beers})
         })
         .catch(error => {
             console.log(error);

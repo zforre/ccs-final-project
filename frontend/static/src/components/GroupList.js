@@ -29,8 +29,8 @@ class GroupList extends Component {
         console.log(this.state.id)
         axios.delete(`${BASE_URL}/api/v1/${group.id}`)
         .then(res => {
-            console.log(res);
-            console.log(res.data);
+            // console.log(res);
+            // console.log(res.data);
             let groups = [...this.state.groups];
             const INDEX = groups.indexOf(group);
             groups.splice(INDEX, 1);
@@ -53,11 +53,11 @@ class GroupList extends Component {
     }
 
     render() {
-        console.log('group list', this.props)
-        console.log(this.state.groups)
+        // console.log('group list', this.props)
+        // console.log(this.state.groups)
         return(
             <div className="collect ml-5">
-                <h2 className="mt-5">Profile info goes here!</h2>
+                <h3 className="mt-5">My Collection's</h3>
                     {this.state.groups.map(group => 
                     <CardDeck key={group.id} style={{ width: '35rem' }}>
                         <Card bg="dark" text="white" className="mt-5 mr-5" >
