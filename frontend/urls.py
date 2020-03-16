@@ -11,6 +11,7 @@ urlpatterns = [
     path('GroupList/', views.IndexView.as_view(), name='list'),
     path('Beer/', views.IndexView.as_view(), name='beer'),
     path('Profile/', views.IndexView.as_view(), name='profile'),
+    path('GroupUpdate/', views.IndexView.as_view(), name='update'),
     path('GroupDetail/<int:pk>/', views.IndexView.as_view(), name='detail'),
     path('GroupForm/', views.IndexView.as_view(), name='form')
 ]
