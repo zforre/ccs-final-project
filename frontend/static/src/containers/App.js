@@ -25,7 +25,7 @@ export default function App() {
   return (
     <Router>
       <div>
-        <Navbar bg="dark" variant="dark" defaultActiveKey="/home">
+        <Navbar bg="dark" variant="dark" defaultactivekey="/home">
           <Navbar.Brand href="/">brewSpotter</Navbar.Brand>
             <Nav className="mr-auto">
               <Nav.Link href="/Profile">Profile</Nav.Link>
