@@ -67,7 +67,7 @@ class SignUp extends Component {
                     <Form.Label className="Form-label"> Confirm Password:</Form.Label>
                     <Form.Control  type="password" name="password2" value={this.state.password} onChange={this.handleChange} placeholder='Enter password' required />
                 </Form.Group>
-                <Button className="login-Btn" type='submit'>Sign Up</Button>
+                <Button className="login-Btn" type='submit' href="/profilesetup">Sign Up</Button>
             </Form>
       </div>
     )

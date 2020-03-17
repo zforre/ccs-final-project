@@ -1,13 +1,13 @@
 import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 import SignUp from '../components/SignUp.js'
+import ProfileSetup from '../components/ProfileSetup'
 import LogIn from '../components/LogIn.js'
 import Profile from '../components/Profile.js'
 import GroupList from '../components/GroupList.js'
 import GroupDetail from '../components/GroupDetail.js'
 import GroupForm from '../components/GroupForm.js'
 import GroupUpdate from '../components/GroupEdit.js'
-import Beer from '../components/Beer.js'
 import {Navbar, Form, FormControl, Button} from 'react-bootstrap';
 import './App.css';
 import {
@@ -27,8 +27,8 @@ export default function App() {
         <Navbar bg="dark" variant="dark" defaultactivekey="/home">
           <Navbar.Brand href="/">brewSpotter</Navbar.Brand>
             <Nav className="mr-auto">
-              <Nav.Link href="/Profile/user">Profile</Nav.Link>
-              <Nav.Link href="/SignUp">Sign Up</Nav.Link>
+              <Nav.Link href="/profile/user">Profile</Nav.Link>
+              <Nav.Link href="/signup">Create an Account</Nav.Link>
               <Nav.Link href="/Login">Log In</Nav.Link>
               <Nav.Link onClick={logOut}>Log Out</Nav.Link>
             </Nav>
@@ -40,14 +40,14 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/GroupForm" component={GroupForm}/>
-          <Route path="/GroupUpdate/:id" component={GroupUpdate}/>
-          <Route path="/GroupDetail/:id/" component={GroupDetail}/>
-          <Route path="/Beer" component={Beer}/>
-          <Route path="/GroupList" component={GroupList}/>
-          <Route path="/Profile/:user" component={Profile}/>
-          <Route path="/LogIn" component={LogIn}/>
-          <Route path="/SignUp" component={SignUp}/>
+          <Route path="/groupform" component={GroupForm}/>
+          <Route path="/groupupdate/:id" component={GroupUpdate}/>
+          <Route path="/groupdetail/:id" component={GroupDetail}/>
+          <Route path="/grouplist" component={GroupList}/>
+          <Route path="/profile/:user" component={Profile}/>
+          <Route path="/login" component={LogIn}/>
+          <Route path="/signup" component={SignUp}/>
+          <Route path="/profilesetup" component={ProfileSetup}/>
           <Route path="/">
             <Home />
           </Route>
