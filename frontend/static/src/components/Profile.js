@@ -40,21 +40,16 @@ class Profile extends Component {
     render() {
         // console.log(this.state);
         return(
-            <div className='Row' >
-                 
-                <Card className="mt-5 ml-5" key={this.state.user} style={{ width: '18rem' }}>
+            <div>
+                 <Card bg="dark" text="white" className="mt-5 ml-5" key={this.state.user} style={{ width: '18rem' }}>
                     <Card.Img variant="top" src={this.state.avatar} />
                     <Card.Body>
                         <Card.Title>{this.state.user.username}</Card.Title>
-                        <Card.Text>
-                            {this.state.bio}
-                        </Card.Text>
-                        <Card.Text className="text-muted">
-                            {this.state.location}
-                        </Card.Text>
+                        <Card.Text>{this.state.bio}</Card.Text>
+                        <Card.Text className="text-muted">{this.state.location}</Card.Text>
+                        <Card.Link href="/profileedit" >Edit Profile</Card.Link>
                     </Card.Body>
                 </Card>
-                
                 <GroupList />
             </div>
             

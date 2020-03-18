@@ -2,6 +2,7 @@ import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 import SignUp from '../components/SignUp.js'
 import ProfileSetup from '../components/ProfileSetup'
+import ProfileEdit from '../components/ProfileEdit'
 import LogIn from '../components/LogIn.js'
 import Profile from '../components/Profile.js'
 import GroupList from '../components/GroupList.js'
@@ -48,6 +49,7 @@ export default function App() {
           <Route path="/login" component={LogIn}/>
           <Route path="/signup" component={SignUp}/>
           <Route path="/profilesetup" component={ProfileSetup}/>
+          <Route path="/profileedit" component={ProfileEdit}/>
           <Route path="/">
             <Home />
           </Route>
