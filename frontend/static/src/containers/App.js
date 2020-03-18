@@ -30,7 +30,7 @@ export default function App() {
             <Nav className="mr-auto">
               <Nav.Link href="/profile/user">Profile</Nav.Link>
               <Nav.Link href="/signup">Create an Account</Nav.Link>
-              <Nav.Link href="/Login">Log In</Nav.Link>
+              <Nav.Link href="/login">Log In</Nav.Link>
               <Nav.Link onClick={logOut}>Log Out</Nav.Link>
             </Nav>
             <Form inline>
