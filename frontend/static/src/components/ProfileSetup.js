@@ -33,7 +33,6 @@ class ProfileSetup extends Component {
         // console.log(this.state)
 
         formData.append('avatar', this.state.avatar);
-        formData.append('username', this.state.username);
         formData.append('bio', this.state.bio);
         formData.append('location', this.state.location);
         formData.append('birthdate', this.state.birthdate);
@@ -42,7 +41,7 @@ class ProfileSetup extends Component {
         console.log(this.state);
         // axios.post('api/v1/', formData);
     
-        axios.post(`${BASE_URL}/api/v1/profile`, formData, {
+        axios.post(`${BASE_URL}/api/v1/profile/`, formData, {
           headers: {
             'content-type': 'multipart/form-data'
           }
@@ -75,10 +74,6 @@ class ProfileSetup extends Component {
             <Form className="profile-form" onSubmit={this.handleSubmit}>
                 <h2 className="form-title d-flex justify-content-center"><span>Setup Your Profile</span></h2>
                 <Form.Group>
-                    <Form.Label className="Form-label">Username:</Form.Label>
-                    <Form.Control  type="text" name="username" value={this.state.username} onChange={this.handleChange} placeholder='Enter username' required />
-                </Form.Group>
-                <Form.Group>
                     <Form.Label className="Form-label">Bio:</Form.Label>
                     <Form.Control as="textarea" rows="3" type="text" name="bio" value={this.state.bio} onChange={this.handleChange} placeholder='Tell us about yourself.' required />
                     <Form.Text className="text-muted">
@@ -91,7 +86,7 @@ class ProfileSetup extends Component {
                 </Form.Group>
                 <Form.Group>
                     <Form.Label className="Form-label"> Birth date:</Form.Label>
-                    <Form.Control  type="text" name="birthdate" value={this.state.birthdate} onChange={this.handleChange} placeholder='mm/dd/yyyy' required />
+                    <Form.Control  type="date" name="birthdate" value={this.state.birthdate} onChange={this.handleChange} placeholder='mm/dd/yyyy' required />
                     <Form.Text className="text-muted">
                             This will not be displayed on your profile page.
                     </Form.Text>
@@ -100,7 +95,7 @@ class ProfileSetup extends Component {
                     <Form.Label>Upload an Avatar Image</Form.Label>
                     <Form.Control type="file" name='avatar' onChange={this.handleImage}/>
                 </Form.Group>
-                <Button className="login-Btn" type='submit' href="/profile/user">Create Profile</Button>
+                <Button className="login-Btn" type='submit' >Create Profile</Button>
             </Form>
       </div>
     )

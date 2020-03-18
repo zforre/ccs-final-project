@@ -27,10 +27,10 @@ class Profile extends Component {
 
         
 
-        axios.get(`${BASE_URL}/api/v1/profile/`)
+        axios.get(`${BASE_URL}/api/v1/profile/user/`)
         .then((res) => {
             console.log(res.data)
-            this.setState({profiles: res.data})
+            this.setState(res.data)
         })
         .catch(error => {
             console.log(error);
@@ -41,19 +41,19 @@ class Profile extends Component {
         // console.log(this.state);
         return(
             <div className='Row' >
-                {this.state.profiles.map(profile => 
-                <Card className="mt-5 ml-5" key={profile.user} style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={profile.avatar} />
+                 
+                <Card className="mt-5 ml-5" key={this.state.user} style={{ width: '18rem' }}>
+                    <Card.Img variant="top" src={this.state.avatar} />
                     <Card.Body>
-                        <Card.Title>{profile.username}</Card.Title>
+                        <Card.Title>{this.state.user.username}</Card.Title>
                         <Card.Text>
-                            {profile.bio}
+                            {this.state.bio}
                         </Card.Text>
                         <Card.Text className="text-muted">
-                            {profile.location}
+                            {this.state.location}
                         </Card.Text>
                     </Card.Body>
-                </Card>)}
+                </Card>
                 
                 <GroupList />
             </div>

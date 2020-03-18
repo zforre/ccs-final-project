@@ -72,7 +72,7 @@ class LogIn extends Component {
                         Don't have an acount? <a  href="/signup/"><span className="login-Btn SignUp-btn">Click here to Sign up.</span></a>
                         </Form.Text>
                     </Form.Group>
-                    <Button to="/" className="login-Btn" type="submit">Login</Button>
+                    <Button className="login-Btn" type="submit">Login</Button>
                 </Form>
             </div>
     )

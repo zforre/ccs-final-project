@@ -6,8 +6,14 @@ from .serializers import GroupSerializer, BeerSerializer
 
 
 class GroupListCreate(generics.ListCreateAPIView):
-    queryset = Group.objects.all()
+    # queryset = Group.objects.all()
     serializer_class = GroupSerializer
+
+    def get_queryset(self):
+        return Group.objects.filter(created_by=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(created_by=self.request.user)
 
 class GroupRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Group.objects.all()

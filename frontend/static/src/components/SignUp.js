@@ -31,7 +31,8 @@ class SignUp extends Component {
     .then(res => {
         console.log('two', res)
         localStorage.setItem('my-app-user', JSON.stringify(res.data));
-        this.props.history.push('/');
+        this.props.history.push('/profilesetup');
+        //this redirects to the profilesetup
     })
     .catch(error => {
         console.log(error);
@@ -67,7 +68,7 @@ class SignUp extends Component {
                     <Form.Label className="Form-label"> Confirm Password:</Form.Label>
                     <Form.Control  type="password" name="password2" value={this.state.password} onChange={this.handleChange} placeholder='Enter password' required />
                 </Form.Group>
-                <Button className="login-Btn" type='submit' href="/profilesetup">Sign Up</Button>
+                <Button className="login-Btn" type='submit' >Sign Up</Button>
             </Form>
       </div>
     )
