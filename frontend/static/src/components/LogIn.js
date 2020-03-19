@@ -35,7 +35,8 @@ class LogIn extends Component {
         console.log('one', res)
         localStorage.setItem('my-app-user', JSON.stringify(res.data));
         // this.props.history.push('/');
-        window.location.reload(false);
+        // window.location.reload(false);
+        this.props.history.push('/profile/user');
     })
     .catch(error => {
         console.log(error);

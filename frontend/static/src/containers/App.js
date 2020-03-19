@@ -1,14 +1,15 @@
 import React from 'react';
 import Nav from 'react-bootstrap/Nav';
-import SignUp from '../components/SignUp.js'
-import ProfileSetup from '../components/ProfileSetup'
-import ProfileEdit from '../components/ProfileEdit'
-import LogIn from '../components/LogIn.js'
-import Profile from '../components/Profile.js'
-import GroupList from '../components/GroupList.js'
-import GroupDetail from '../components/GroupDetail.js'
-import GroupForm from '../components/GroupForm.js'
-import GroupUpdate from '../components/GroupEdit.js'
+import SignUp from '../components/SignUp.js';
+import Spotter from '../components/Spotter.js';
+import ProfileSetup from '../components/ProfileSetup';
+import ProfileEdit from '../components/ProfileEdit';
+import LogIn from '../components/LogIn.js';
+import Profile from '../components/Profile.js';
+import GroupList from '../components/GroupList.js';
+import GroupDetail from '../components/GroupDetail.js';
+import GroupForm from '../components/GroupForm.js';
+import GroupUpdate from '../components/GroupEdit.js';
 import {Navbar, Form, FormControl, Button} from 'react-bootstrap';
 import './App.css';
 import {
@@ -25,13 +26,13 @@ export default function App() {
   return (
     <Router>
       <div>
-        <Navbar bg="dark" variant="dark" defaultactivekey="/home">
-          <Navbar.Brand href="/">brewSpotter</Navbar.Brand>
+        <Navbar bg="dark" variant="dark" defaultactivekey="/spotter">
+          <Navbar.Brand href="/spotter">brewSpotter</Navbar.Brand>
             <Nav className="mr-auto">
               <Nav.Link href="/profile/user">Profile</Nav.Link>
               <Nav.Link href="/signup">Create an Account</Nav.Link>
               <Nav.Link href="/login">Log In</Nav.Link>
-              <Nav.Link onClick={logOut}>Log Out</Nav.Link>
+              <Nav.Link onClick={logOut} href="/login">Log Out</Nav.Link>
             </Nav>
             <Form inline>
               <FormControl type="text" placeholder="Search" className="mr-sm-2" />
@@ -41,6 +42,7 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
+          <Route path='/spotter' component={Spotter}/>
           <Route path="/groupform" component={GroupForm}/>
           <Route path="/groupupdate/:id" component={GroupUpdate}/>
           <Route path="/groupdetail/:id" component={GroupDetail}/>
@@ -50,24 +52,18 @@ export default function App() {
           <Route path="/signup" component={SignUp}/>
           <Route path="/profilesetup" component={ProfileSetup}/>
           <Route path="/profileedit" component={ProfileEdit}/>
-          <Route path="/">
-            <Home />
-          </Route>
         </Switch>
       </div>
     </Router>
   );
 }
 
-function Home() {
-  return <h2>Home</h2>;
-}
-
 function logOut() {
   axios.post(`${BASE_URL}/rest-auth/logout/`)
     .then(res => {
         localStorage.removeItem('my-app-user');
-        console.log('one', res)
+        console.log('one', res);
+        // this.context.history.push('/login');
     })
     .catch(error => {
         console.log(error);
