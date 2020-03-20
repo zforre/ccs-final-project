@@ -7,7 +7,16 @@ import '../containers/App.css';
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
-// const BASE_URL = process.env.REACT_APP_BASE_URL
+const CLIENT_ID = process.env.REACT_APP_UNTAPPD_CLIENT_ID
+const CLIENT_SECRET = process.env.REACT_APP_UNTAPPD_CLIENT_SECRET
+
+function randomNumber(min, max) {  
+    min = Math.ceil(min); 
+    max = Math.floor(max); 
+    return Math.floor(Math.random() * (max - min + 1)) + min; 
+}  
+
+const RANDOM_BEER = randomNumber(1, 2000);
 
 class Spotter extends Component {
 
@@ -25,11 +34,13 @@ class Spotter extends Component {
       brewery_state: ""
     }
 
+    this.handleClick = this.handleClick.bind(this);
     
   }
 
+
   componentDidMount() {
-    axios.get()
+    axios.get(`https://api.untappd.com/v4/beer/info/${RANDOM_BEER}?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`)
     .then(res => {
         console.log(res);
         this.setState(res.data.response.beer)
@@ -37,35 +48,36 @@ class Spotter extends Component {
     .catch(error => {
         console.log(error);
     })
-}
-  
+    }
 
+    handleClick() {
+        window.location.reload();
+    }
   
-
-  render() {
+    render() {
     // console.log('props', this.props)
-    return  (
+        return  (
+            
+                <div className="row justify-content-center">
+                    <CardDeck  className="w-75 mt-5">
+                        <Card className="bg-dark text-white">
+                            
+                            <Card.Img src={this.state.beer_label_hd} variant="top" className="" />
+                            <Card.Body >
+                                <Card.Title> <h1>{this.state.beer_name}</h1></Card.Title>
+                                <Card.Text>ABV: {this.state.beer_abv} IBU: {this.state.beer_ibu}</Card.Text>
+                                <Card.Text>{this.state.beer_style}</Card.Text>
+                                <Card.Text>{this.state.beer_description}</Card.Text>
+                                <Card.Link href="#" className="alert-link">Add to Your Collection</Card.Link>
+                                <div className='w-100'></div>
+                                <Button className='mt-3' onClick={this.handleClick} >New Beer</Button>
+                            </Card.Body>
+                        </Card>
+                    </CardDeck>
+                </div>
         
-            <div className="row justify-content-center">
-                <CardDeck  className="w-50 mt-5">
-                    <Card className="bg-dark text-white">
-                        
-                        <Card.Img src={this.state.beer_label_hd} variant="top" className="" />
-                        <Card.Body >
-                        <Card.Title> <h1>{this.state.beer_name}</h1></Card.Title>
-                        <Card.Text>
-                            <p>ABV: {this.state.beer_abv} IBU: {this.state.beer_ibu}</p>
-                            <p>{this.state.beer_style}</p>
-                            <p>{this.state.beer_description}</p>
-                        </Card.Text>
-                        <Card.Link href="#" className="alert-link">Add to Your Collection</Card.Link>
-                        </Card.Body>
-                    </Card>
-                </CardDeck>
-            </div>
-        
-    )
-  }
+        )
+    }
 }
 
 export default Spotter;
