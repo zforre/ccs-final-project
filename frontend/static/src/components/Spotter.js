@@ -31,7 +31,8 @@ class Spotter extends Component {
       beer_description: "",
       brewery_name: "",
       brewery_city: "",
-      brewery_state: ""
+      brewery_state: "",
+      url: ""
     }
 
     this.handleClick = this.handleClick.bind(this);
@@ -43,7 +44,10 @@ class Spotter extends Component {
     axios.get(`https://api.untappd.com/v4/beer/info/${RANDOM_BEER}?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`)
     .then(res => {
         console.log(res);
-        this.setState(res.data.response.beer)
+        this.setState(res.data.response.beer);
+        this.setState(res.data.response.beer.brewery);
+        this.setState(res.data.response.beer.brewery.contact);
+        this.setState(res.data.response.beer.brewery.location);
     })
     .catch(error => {
         console.log(error);
@@ -53,6 +57,8 @@ class Spotter extends Component {
     handleClick() {
         window.location.reload();
     }
+
+    // if there is no image show something else
   
     render() {
     // console.log('props', this.props)
@@ -65,10 +71,13 @@ class Spotter extends Component {
                             <Card.Img src={this.state.beer_label_hd} variant="top" className="" />
                             <Card.Body >
                                 <Card.Title> <h1>{this.state.beer_name}</h1></Card.Title>
-                                <Card.Text>ABV: {this.state.beer_abv} IBU: {this.state.beer_ibu}</Card.Text>
                                 <Card.Text>{this.state.beer_style}</Card.Text>
+                                <Card.Text className="text-muted" >ABV: {this.state.beer_abv} IBU: {this.state.beer_ibu}</Card.Text>
                                 <Card.Text>{this.state.beer_description}</Card.Text>
-                                <Card.Link href="#" className="alert-link">Add to Your Collection</Card.Link>
+                                <Card.Link href={this.state.url}>{this.state.brewery_name}</Card.Link>
+                                <Card.Text >{this.state.brewery_city}, {this.state.brewery_state}</Card.Text>
+                                <div className='w-100'></div>
+                                <Card.Link href="#" className="alert-link text-success">Add to Your Collection</Card.Link>
                                 <div className='w-100'></div>
                                 <Button className='mt-3' onClick={this.handleClick} >New Beer</Button>
                             </Card.Body>
