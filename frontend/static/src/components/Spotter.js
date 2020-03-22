@@ -58,7 +58,10 @@ class Spotter extends Component {
         window.location.reload();
     }
 
+    // questionaire possibly a modal
     // if there is no image show something else
+    // function to filter based off of reaction
+
   
     render() {
     // console.log('props', this.props)
