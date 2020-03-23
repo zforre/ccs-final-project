@@ -24,6 +24,7 @@ class Spotter extends Component {
     super(props);
     this.state = {
       beer_name: "",
+      beer_label: "",
       beer_label_hd: "",
       beer_abv: "",
       beer_ibu: "",
@@ -71,7 +72,7 @@ class Spotter extends Component {
                     <CardDeck  className="w-75 mt-5">
                         <Card className="bg-dark text-white">
                             
-                            <Card.Img src={this.state.beer_label_hd} variant="top" className="" />
+                            <Card.Img src={this.state.beer_label_hd || this.state.beer_label} variant="top" className="" />
                             <Card.Body >
                                 <Card.Title> <h1>{this.state.beer_name}</h1></Card.Title>
                                 <Card.Text>{this.state.beer_style}</Card.Text>

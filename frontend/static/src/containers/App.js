@@ -26,8 +26,8 @@ export default function App() {
   return (
     <Router>
       <div>
-        <Navbar bg="dark" variant="dark" defaultactivekey="/spotter">
-          <Navbar.Brand href="/spotter">brewSpotter</Navbar.Brand>
+        <Navbar bg="dark" variant="dark" defaultactivekey="/">
+          <Navbar.Brand href="/">brewSpotter</Navbar.Brand>
             <Nav className="mr-auto">
               <Nav.Link href="/profile/user">Profile</Nav.Link>
               <Nav.Link href="/signup">Create an Account</Nav.Link>
@@ -42,7 +42,7 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path='/spotter' component={Spotter}/>
+          <Route path='/' component={Spotter}/>
           <Route path="/groupform" component={GroupForm}/>
           <Route path="/groupupdate/:id" component={GroupUpdate}/>
           <Route path="/groupdetail/:id" component={GroupDetail}/>
