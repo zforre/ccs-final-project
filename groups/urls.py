@@ -9,4 +9,5 @@ urlpatterns = [
     path('<int:pk>/', views.GroupRetrieveUpdateDestroy.as_view(), name='group_detail'),
     path('beer', views.BeerListCreate.as_view(), name='group_list'),
     path('beer/<int:pk>/', views.BeerRetrieveUpdateDestroy.as_view(), name='beer_detail'),
+    # path('groups/<int:pk>/beer/', views.GroupBeerCreateAPIView.as_view(), name='group_beer_create'),
 ]

@@ -3,18 +3,25 @@ import {Form, Button} from 'react-bootstrap';
 import '../containers/App.css';
 import axios from "axios";
 
+axios.defaults.xsrfCookieName = 'csrftoken';
+axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+
 
 class Question extends Component {
 
     constructor(props) {
       super(props);
       this.state = {
-        
-      }
+          q1:'',
+          q2:'',
+          q3:'',
+          q4:'',
+          q5:'',
+          q6:''
+        }
   
       this.handleSubmit = this.handleSubmit.bind(this);
       this.handleChange = this.handleChange.bind(this);
-    
     }
 
     handleChange(e) {

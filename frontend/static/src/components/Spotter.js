@@ -10,13 +10,13 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 const CLIENT_ID = process.env.REACT_APP_UNTAPPD_CLIENT_ID
 const CLIENT_SECRET = process.env.REACT_APP_UNTAPPD_CLIENT_SECRET
 
-function randomNumber(min, max) {  
-    min = Math.ceil(min); 
-    max = Math.floor(max); 
-    return Math.floor(Math.random() * (max - min + 1)) + min; 
-}  
+// function randomNumber(min, max) {  
+//     min = Math.ceil(min); 
+//     max = Math.floor(max); 
+//     return Math.floor(Math.random() * (max - min + 1)) + min; 
+// }  
 
-const RANDOM_BEER = randomNumber(1, 2000);
+// const RANDOM_BEER = randomNumber(1, 2000);
 
 class Spotter extends Component {
 
@@ -37,11 +37,15 @@ class Spotter extends Component {
     }
 
     this.handleClick = this.handleClick.bind(this);
-    
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
-
   componentDidMount() {
+      this.handleSearch()
+  }
+
+  handleSearch() {
+    const RANDOM_BEER = Math.floor(Math.random() * (2000 - 1 + 1)) + 1;
     axios.get(`https://api.untappd.com/v4/beer/info/${RANDOM_BEER}?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`)
     .then(res => {
         console.log(res);
@@ -50,6 +54,7 @@ class Spotter extends Component {
         this.setState(res.data.response.beer.brewery.contact);
         this.setState(res.data.response.beer.brewery.location);
     })
+
     .catch(error => {
         console.log(error);
     })
@@ -59,9 +64,10 @@ class Spotter extends Component {
         window.location.reload();
     }
 
-    // questionaire possibly a modal
-    // if there is no image show something else
-    // function to filter based off of reaction
+    // addBeer() {
+    //     axios.post(`${BASE_URL}/api/v1/`)
+    // }
+    
 
   
     render() {
@@ -69,7 +75,7 @@ class Spotter extends Component {
         return  (
             
                 <div className="row justify-content-center">
-                    <CardDeck  className="w-75 mt-5">
+                    <CardDeck  className="w-50 mt-5">
                         <Card className="bg-dark text-white">
                             
                             <Card.Img src={this.state.beer_label_hd || this.state.beer_label} variant="top" className="" />
@@ -81,9 +87,9 @@ class Spotter extends Component {
                                 <Card.Link href={this.state.url}>{this.state.brewery_name}</Card.Link>
                                 <Card.Text >{this.state.brewery_city}, {this.state.brewery_state}</Card.Text>
                                 <div className='w-100'></div>
-                                <Card.Link href="#" className="alert-link text-success">Add to Your Collection</Card.Link>
+                                <Button href="#" className="" onClick={this.addBeer}>Add to Your Collection</Button>
                                 <div className='w-100'></div>
-                                <Button className='mt-3' onClick={this.handleClick} >New Beer</Button>
+                                <Button className='mt-3' onClick={this.handleSearch} >New Beer</Button>
                             </Card.Body>
                         </Card>
                     </CardDeck>
