@@ -5,7 +5,7 @@ from . import views
 app_name = 'frontend'
 
 urlpatterns = [
-    path('', views.IndexView.as_view(), name='index'),
+    
     path('spotter/', views.IndexView.as_view(), name='spotter'),
     path('signup/', views.IndexView.as_view(), name='signup'),
     path('profilesetup/', views.IndexView.as_view(), name='setup'),
@@ -15,5 +15,6 @@ urlpatterns = [
     path('profile/user', views.IndexView.as_view(), name='profile'),
     path('groupupdate/<int:pk>/', views.IndexView.as_view(), name='update'),
     path('groupdetail/<int:pk>/', views.IndexView.as_view(), name='detail'),
-    path('groupform/', views.IndexView.as_view(), name='form')
+    path('groupform/', views.IndexView.as_view(), name='form'),
+    path('', views.IndexView.as_view(), name='index'),
 ]

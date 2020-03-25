@@ -15,3 +15,19 @@ class GroupSerializer(serializers.ModelSerializer):
         fields = ('id', 'title', 'description', 'image', 'is_public', 'beers')
 
 
+class GroupBeerSerializer(serializers.ModelSerializer):
+    model = Group
+
+    # def update(self, instance, validated_data):
+
+        # need to find out if beer exists (use the Beer model to search)
+        # add beer if it doesnt not exist (use the Beer to create)
+        # add it to group (you can find the group using kwargs e.g. kwargs['id]) (use the Group model to update)
+        # print(validated_data)
+        
+        # instance.beers.add(beer)
+        # instance.save()
+
+        #return instance
+
+

@@ -2,11 +2,11 @@ from django.shortcuts import render, get_object_or_404
 from rest_framework import generics
 
 from .models import Group, Beer
-from .serializers import GroupSerializer, BeerSerializer
+from .serializers import GroupSerializer, BeerSerializer, GroupBeerSerializer
 
 
 class GroupListCreate(generics.ListCreateAPIView):
-    # queryset = Group.objects.all()
+    queryset = Group.objects.all()
     serializer_class = GroupSerializer
 
     def get_queryset(self):
@@ -26,3 +26,8 @@ class BeerListCreate(generics.ListCreateAPIView):
 class BeerRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Beer.objects.all()
     serializer_class = BeerSerializer
+
+
+class GroupBeerCreate(generics.CreateAPIView):
+    queryset = Group.objects.all()
+    serializer_class = GroupBeerSerializer

@@ -42,7 +42,7 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path='/' component={Spotter}/>
+          
           <Route path="/groupform" component={GroupForm}/>
           <Route path="/groupupdate/:id" component={GroupUpdate}/>
           <Route path="/groupdetail/:id" component={GroupDetail}/>
@@ -52,6 +52,7 @@ export default function App() {
           <Route path="/signup" component={SignUp}/>
           <Route path="/profilesetup" component={ProfileSetup}/>
           <Route path="/profileedit" component={ProfileEdit}/>
+          <Route path='/' exact component={Spotter}/>
         </Switch>
       </div>
     </Router>

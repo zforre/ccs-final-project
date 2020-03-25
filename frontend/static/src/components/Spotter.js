@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from "axios";
 import {Card, CardDeck, Button} from 'react-bootstrap'
 import '../containers/App.css';
-import GroupList from '../components/GroupList.js'
+
 
 
 axios.defaults.xsrfCookieName = 'csrftoken';
@@ -36,15 +36,25 @@ class Spotter extends Component {
       brewery_name: "",
       brewery_city: "",
       brewery_state: "",
-      url: ""
+      url: "",
+      groups: []
     }
 
-    this.handleClick = this.handleClick.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
   }
 
   componentDidMount() {
-      this.handleSearch()
+    this.handleSearch()
+    // add url to get request that returns user's groups
+    axios.get(`${BASE_URL}/api/v1/`)
+    .then(res => {
+      console.log(res);
+        this.setState({groups: res.data})
+       // set the groups on state so you can use them to prompt the user for a group
+    })
+    .catch(error => {
+      console.log(error);
+    })
   }
 
   handleSearch() {
@@ -63,19 +73,24 @@ class Spotter extends Component {
     })
     }
 
-    handleClick() {
-        window.location.reload();
-    }
-
-    addBeer() {
-        
-        axios.post(`${BASE_URL}/api/v1/groups/${this.props.group.id}`)
+    
+    addBeer(group) {
+      const data = {
+      label: this.state.beer_label,
+      name: this.state.beer_name,
+      description: this.state.beer_description,
+      abv: this.state.beer_abv,
+      ibu: this.state.beer_ibu,
+      city: this.state.brewery_city,
+      state: this.state.brewery_state
+      }
+      axios.post(`${BASE_URL}/api/v1/${group.id}/`, data)
         .then(res => {
-            console.log(res);
-            //setState this beer content = beers
+          console.log(res);
+          //setState this beer content = beers
         })
         .catch(error => {
-            console.log(error);
+          console.log(error);
         })
     }
     
@@ -84,6 +99,8 @@ class Spotter extends Component {
   
     render() {
     // console.log('props', this.props)
+
+        // const groups = this.state.groups.map(group => <button  type='button' onClick={() => this.addBeer(group)})
         return  (
             
                 <div className="row justify-content-center">
