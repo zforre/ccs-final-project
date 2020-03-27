@@ -28,6 +28,17 @@ class BeerRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = BeerSerializer
 
 
-class GroupBeerCreate(generics.CreateAPIView):
+class GroupBeerUpdate(generics.UpdateAPIView):
     queryset = Group.objects.all()
     serializer_class = GroupBeerSerializer
+
+    def partial_update(self, request, *args, **kwargs):
+
+       
+        if not Beer.objects.filter(beer_name=request.data['beer_name']).exists():
+            beer = Beer.objects.create(beer_name=request.data['beer_name'],)
+        else:
+            beer = Beer.objects.filter(beer_name=request.data['beer_name'])
+        instance = self.get_object()
+        instance.beers.add(beer)
+        instance.save()

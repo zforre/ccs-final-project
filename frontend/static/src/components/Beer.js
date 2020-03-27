@@ -14,10 +14,17 @@ class Beer extends Component {
         super(props);
         this.state = {
             beers: [],
-            id: '',
-            name: '',
-            description: '',
-            image: null
+            bid: '',
+            beer_name: '',
+            beer_description: '',
+            beer_label: null,
+            beer_abv: "",
+            beer_ibu: "",
+            beer_style: "",
+            beer_description: "",
+            brewery_name: "",
+            brewery_city: "",
+            brewery_state: "",
         }
     }
 
@@ -40,10 +47,10 @@ class Beer extends Component {
         return(
             <div>
             {this.state.beers.map(beer => 
-                <Figure key={beer.id} className="mt-3 mr-3 beeritem">
+                <Figure key={beer.bid} className="mt-3 mr-3 beeritem">
                     <Figure.Image width={120} height={120} alt="beer" src={beer.image}/>
                     <Figure.Caption className="text-white">
-                        {beer.name}
+                        {beer.beer_name}
                     </Figure.Caption>
                 </Figure>)}
             </div>

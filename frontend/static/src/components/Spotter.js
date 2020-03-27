@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from "axios";
-import {Card, CardDeck, Button} from 'react-bootstrap'
+import {Card, CardDeck, Button, Dropdown} from 'react-bootstrap'
 import '../containers/App.css';
 
 
@@ -37,10 +37,11 @@ class Spotter extends Component {
       brewery_city: "",
       brewery_state: "",
       url: "",
-      groups: []
+      groups: [],
     }
 
     this.handleSearch = this.handleSearch.bind(this);
+    this.addBeer = this.addBeer.bind(this);
   }
 
   componentDidMount() {
@@ -59,7 +60,7 @@ class Spotter extends Component {
 
   handleSearch() {
     const RANDOM_BEER = Math.floor(Math.random() * (2000 - 1 + 1)) + 1; //returns random number for beer some beers are broken
-    axios.get(`https://api.untappd.com/v4/beer/info/${RANDOM_BEER}?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`)
+    axios.get(`https://api.untappd.com/v4/beer/info/${RANDOM_BEER}?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`)        
     .then(res => {
         console.log(res);
         this.setState(res.data.response.beer);
@@ -71,61 +72,67 @@ class Spotter extends Component {
     .catch(error => {
         console.log(error);
     })
-    }
+  }
 
     
-    addBeer(group) {
-      const data = {
-      label: this.state.beer_label,
-      name: this.state.beer_name,
-      description: this.state.beer_description,
-      abv: this.state.beer_abv,
-      ibu: this.state.beer_ibu,
-      city: this.state.brewery_city,
-      state: this.state.brewery_state
-      }
-      axios.post(`${BASE_URL}/api/v1/${group.id}/`, data)
-        .then(res => {
-          console.log(res);
-          //setState this beer content = beers
-        })
-        .catch(error => {
-          console.log(error);
-        })
+  addBeer(group) {
+    console.log(group)
+    const data = {
+    beer_label: this.state.beer_label,
+    beer_name: this.state.beer_name,
+    beer_description: this.state.beer_description,
+    beer_abv: this.state.beer_abv,
+    beer_ibu: this.state.beer_ibu,
+    brewery_name: this.state.brewery_name,
+    brewery_city: this.state.brewery_city,
+    brewery_state: this.state.brewery_state
     }
-    
-    
+    axios.patch(`${BASE_URL}/api/v1/testing/${group}/`, data)
+      .then(res => {
+        console.log(res);
+        //setState this beer content = beers
+      })
+      .catch(error => {
+        console.log(error);
+      })
+  }
 
-  
-    render() {
+  render() {
     // console.log('props', this.props)
-
-        // const groups = this.state.groups.map(group => <button  type='button' onClick={() => this.addBeer(group)})
-        return  (
-            
-                <div className="row justify-content-center">
-                    <CardDeck  className="w-50 mt-5">
-                        <Card className="bg-dark text-white">
-                            
-                            <Card.Img src={this.state.beer_label_hd || this.state.beer_label} variant="top" className="" />
-                            <Card.Body >
-                                <Card.Title> <h1>{this.state.beer_name}</h1></Card.Title>
-                                <Card.Text>{this.state.beer_style}</Card.Text>
-                                <Card.Text className="text-muted" >ABV: {this.state.beer_abv} IBU: {this.state.beer_ibu}</Card.Text>
-                                <Card.Text>{this.state.beer_description}</Card.Text>
-                                <Card.Link href={this.state.url}>{this.state.brewery_name}</Card.Link>
-                                <Card.Text >{this.state.brewery_city}, {this.state.brewery_state}</Card.Text>
-                                <div className='w-100'></div>
-                                <Button href="#" className="" onClick={this.addBeer}>Add to Your Collection</Button>
-                                <div className='w-100'></div>
-                                <Button className='mt-3' onClick={this.handleSearch} >New Beer</Button>
-                            </Card.Body>
-                        </Card>
-                    </CardDeck>
-                </div>
-        
-        )
-    }
+    return  (
+              
+      <div className="row justify-content-center">
+        <CardDeck  className="w-50 mt-5">
+          <Card className="custom-card text-white">
+            <Card.Img src={this.state.beer_label_hd || this.state.beer_label} variant="top" className="" />
+            <Card.Body >
+              <Card.Title> <h1>{this.state.beer_name}</h1></Card.Title>
+              <Card.Text>{this.state.beer_style}</Card.Text>
+              <Card.Text className="text-muted" >ABV: {this.state.beer_abv} IBU: {this.state.beer_ibu}</Card.Text>
+              <Card.Text>{this.state.beer_description}</Card.Text>
+              <Card.Link href={this.state.url}>{this.state.brewery_name}</Card.Link>
+              <Card.Text >{this.state.brewery_city}, {this.state.brewery_state}</Card.Text>
+              <div className='w-100'></div>
+              {this.state.groups.map(group =>
+              <Dropdown key={group.id}>
+              <Dropdown.Toggle variant="success" id="dropdown-basic">
+                Add to a Collection
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item onClick={() => this.addBeer(group.id)}>{group.title}</Dropdown.Item>
+              </Dropdown.Menu>
+              </Dropdown>)}
+              <div className='w-100'></div>
+              <Button  onClick={this.handleSearch} className="mt-3" >New Beer</Button>
+          </Card.Body>
+        </Card>
+        </CardDeck>
+      </div>
+    )
+  }
 }
 
 export default Spotter;
+
+
+//  after clicking add button display users groups in a modal and then fire the onClick={this.addBeer} method
