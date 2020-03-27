@@ -123,7 +123,7 @@ class Spotter extends Component {
               </Dropdown.Menu>
               </Dropdown>)}
               <div className='w-100'></div>
-              <Button  onClick={this.handleSearch} className="mt-3" >New Beer</Button>
+              <Button  onClick={this.handleSearch} className="mt-3 outline" >New Beer</Button>
           </Card.Body>
         </Card>
         </CardDeck>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Card, CardDeck, Button} from 'react-bootstrap';
+import {Card, CardDeck, Button, Row, Container} from 'react-bootstrap';
 import '../containers/App.css';
 import axios from 'axios';
 
@@ -56,12 +56,15 @@ class GroupList extends Component {
         // console.log('group list', this.props)
         // console.log(this.state.groups)
         return(
-            <div className="collect ml-5">
+            <Container>
                 <h3 className="mt-5">My Collection's</h3>
+                <div className="collect ml-5 row">
                     {this.state.groups.map(group => 
                     <CardDeck key={group.id} style={{ width: '35rem' }}>
-                        <Card bg="dark" text="white" className="mt-5 mr-5" >
-                            <Card.Img src={group.image} variant="top" alt="Uploaded content" />
+                        <Card bg="dark" text="white" className="mt-5 mr-5 col-sm-12 col-6" >
+                            <Row>
+                                <Card.Img src={group.image} variant="top" alt="Uploaded content" />
+                            </Row>
                             <Card.Body>
                                 <Card.Title>{group.title}</Card.Title>
                                 <Card.Text>{group.description}</Card.Text>
@@ -70,8 +73,11 @@ class GroupList extends Component {
                             </Card.Body>
                         </Card>
                     </CardDeck>)}
+                </div>
+            <div className="row">
                 <Button href="/GroupForm" variant="primary" className="mt-5 mb-5">Create new Collection</Button>
             </div>
+            </Container>
         )
     }
 }

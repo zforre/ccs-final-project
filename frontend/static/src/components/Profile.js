@@ -41,7 +41,8 @@ class Profile extends Component {
         // console.log(this.state);
         return(
             <div>
-                 <Card bg="dark" text="white" className="mt-5 ml-5" key={this.state.user} style={{ width: '18rem' }}>
+            <div className="row">
+                 <Card bg="dark" text="white" className="mt-5 ml-5 col-sm-12 col-md-3" key={this.state.user} style={{ width: '18rem' }}>
                     <Card.Img variant="top" src={this.state.avatar} />
                     <Card.Body>
                         <Card.Title>{this.state.user.username}</Card.Title>
@@ -50,6 +51,7 @@ class Profile extends Component {
                         <Card.Link href="/profileedit" >Edit Profile</Card.Link>
                     </Card.Body>
                 </Card>
+            </div>
                 <GroupList />
             </div>
             

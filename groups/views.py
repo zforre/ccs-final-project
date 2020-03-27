@@ -36,7 +36,7 @@ class GroupBeerUpdate(generics.UpdateAPIView):
 
        
         if not Beer.objects.filter(beer_name=request.data['beer_name']).exists():
-            beer = Beer.objects.create(beer_name=request.data['beer_name'],)
+            beer = Beer.objects.create(beer_name=request.data['beer_name'], beer_description=request.data['beer_description'], beer_label=request.data['beer_label'], beer_abv=request.data['beer_abv'], beer_ibu=request.data['beer_ibu'], brewery_name=request.data['brewery_name'], brewery_state=request.data['brewery_state'])
         else:
             beer = Beer.objects.filter(beer_name=request.data['beer_name'])
         instance = self.get_object()

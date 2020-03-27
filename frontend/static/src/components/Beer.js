@@ -21,7 +21,6 @@ class Beer extends Component {
             beer_abv: "",
             beer_ibu: "",
             beer_style: "",
-            beer_description: "",
             brewery_name: "",
             brewery_city: "",
             brewery_state: "",
@@ -43,12 +42,12 @@ class Beer extends Component {
     }
 
     render() {
-        // console.log(this.state);
+        console.log(this.state.beers);
         return(
             <div>
             {this.state.beers.map(beer => 
-                <Figure key={beer.bid} className="mt-3 mr-3 beeritem">
-                    <Figure.Image width={120} height={120} alt="beer" src={beer.image}/>
+                <Figure key={beer.beer_name} className="mt-3 mr-3 beeritem">
+                    <Figure.Image width={120} height={120} alt="beer" src={beer.beer_label}/>
                     <Figure.Caption className="text-white">
                         {beer.beer_name}
                     </Figure.Caption>
