@@ -26,7 +26,8 @@ class Group(models.Model):
     image = models.ImageField( upload_to="images/", default='null')
     is_public = models.BooleanField(default=True)
     beers = models.ManyToManyField(Beer)
-    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True)
+
 
     class Meta:
         ordering = ['title']

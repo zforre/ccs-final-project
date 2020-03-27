@@ -13,10 +13,10 @@ class GroupForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            title: '',
-            description: '',
-            image: null,
-            is_public: true,
+          title: '',
+          description: '',
+          image: null,
+          is_public: true,
         }
 
         this.handleChange = this.handleChange.bind(this);
