@@ -113,17 +113,20 @@ class Spotter extends Component {
               <Card.Link href={this.state.url}>{this.state.brewery_name}</Card.Link>
               <Card.Text >{this.state.brewery_city}, {this.state.brewery_state}</Card.Text>
               <div className='w-100'></div>
-              {this.state.groups.map(group =>
-              <Dropdown key={group.id}>
+              
+              <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                 Add to a Collection
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                <Dropdown.Item onClick={() => this.addBeer(group.id)}>{group.title}</Dropdown.Item>
+              {this.state.groups.map(group =>
+                <Dropdown.Item key={group.id} onClick={() => this.addBeer(group.id)}>
+                  {group.title}
+                </Dropdown.Item>)}
               </Dropdown.Menu>
-              </Dropdown>)}
+              </Dropdown>
               <div className='w-100'></div>
-              <Button  onClick={this.handleSearch} className="mt-3 outline" >New Beer</Button>
+              <Button  onClick={this.handleSearch} className="mt-3 btn-primary" >New Beer</Button>
           </Card.Body>
         </Card>
         </CardDeck>

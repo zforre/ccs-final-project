@@ -8,7 +8,16 @@
     color: #EA7044;
 }
 
-.outline{
-    outline-color: #EA7044;
-   
+.btn-primary {
+    border: solid 2px #EA7044;
+    color: #EA7044;
+    background-color: #494949;
 }
+
+.btn-primary:hover {
+    border: solid 2px #EA7044;
+    background-color: #EA7044;
+    color: #494949;
+}
+
+/* be more specific when overriding bootsrap styling */
