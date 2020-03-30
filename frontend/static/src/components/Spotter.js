@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from "axios";
-import {Card, CardDeck, Button, Dropdown} from 'react-bootstrap'
+import {Card, CardDeck, Button, Dropdown, Row} from 'react-bootstrap'
 import '../containers/App.css';
 
 
@@ -100,11 +100,15 @@ class Spotter extends Component {
   render() {
     // console.log('props', this.props)
     return  (
-              
+      <div className="container">     
       <div className="row justify-content-center">
-        <CardDeck  className="w-50 mt-5">
-          <Card className="card-style">
-            <Card.Img src={this.state.beer_label_hd || 'https://ccs-student-zforre.s3.amazonaws.com/images/spotterlogo.png'} variant="top" className="spot-image" />
+        <CardDeck  className="w-100 mt-5">
+          <Card className="col-6 spot-img-card">
+            <Row>
+            <Card.Img src={this.state.beer_label_hd || this.state.beer_label} className="col spot-img" />
+            </Row>
+          </Card>
+          <Card className="col-6 card-style">
             <Card.Body >
               <Card.Title> <h1>{this.state.beer_name}</h1></Card.Title>
               <Card.Text>{this.state.beer_style}</Card.Text>
@@ -131,6 +135,7 @@ class Spotter extends Component {
         </Card>
         </CardDeck>
       </div>
+    </div> 
     )
   }
 }

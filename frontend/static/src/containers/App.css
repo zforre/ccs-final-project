@@ -24,6 +24,14 @@ body {
     color: #FBD25A;
 }
 
+.spot-img {
+    height: 500px;
+}
+
+.spot-img-card {
+    height: 505px;
+}
+
 .beer-image {
     border-radius: 2px;
     border: solid 1px #000000;
