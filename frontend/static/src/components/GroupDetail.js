@@ -45,7 +45,7 @@ class GroupDetail extends Component {
             <div className="row justify-content-center">
                 
             <CardDeck key={this.state.id} className="mt-5 col-11">
-                <Card className="bg-dark text-white">
+                <Card className="card-style">
                     
                     <Card.Img src={this.state.image} variant="top" className="blur" />
                     <Card.Body >
@@ -53,10 +53,10 @@ class GroupDetail extends Component {
                     <Card.Text>
                         {this.state.description}
                     </Card.Text>
-                    <Card.Link href={`/GroupUpdate/${this.state.id}`} className="alert-link">Edit Collection</Card.Link>
+                    <Card.Link href={`/GroupUpdate/${this.state.id}`} className="custom-link"><i class="fa fa-pencil"></i></Card.Link>
                     <Beer group={this.props.match.params.id} />
                     <div className="w-100"></div>
-                    <small className="text-muted">Last updated 3 mins ago</small>
+                    <small className="">Last updated 3 mins ago</small>
                     </Card.Body>
                 </Card>
             </CardDeck>

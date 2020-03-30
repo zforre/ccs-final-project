@@ -47,8 +47,8 @@ class Beer extends Component {
             <div>
             {this.state.beers.map(beer => 
                 <Figure key={beer.beer_name} className="mt-3 mr-3 beeritem">
-                    <Figure.Image width={120} height={120} alt="beer" src={beer.beer_label}/>
-                    <Figure.Caption className="text-white">
+                    <Figure.Image width={120} height={120} alt="beer" src={beer.beer_label} className='beer-image'/>
+                    <Figure.Caption className="custom-text">
                         {beer.beer_name}
                     </Figure.Caption>
                 </Figure>)}

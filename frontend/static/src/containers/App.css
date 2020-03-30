@@ -3,7 +3,7 @@
     background-color: #ff414e;
     color: #000000;
     border: none;
-    filter: drop-shadow(0 0 0.3rem #000000);
+    filter: drop-shadow(0 0 0.3rem #ff8928);
 }
 
 body {
@@ -14,23 +14,38 @@ body {
     color: #000000;
     font-size: large;
 }
+.custom-text {
+    color: #000000;
+    
+}
 
 .custom-link:hover {
     font-weight: bold;
     color: #FBD25A;
 }
 
-.btn-primary {
+.beer-image {
+    border-radius: 2px;
+    border: solid 1px #000000;
+    padding: 5px;
+    background-color: #ffffff;
+}
+
+.btn-primary, #dropdown-basic {
     border: solid 1px #000000;
     color: #000000;
     background-color: #FBD25A;
     font-size: large;
 }
 
-.btn-primary:hover {
+.btn-primary:hover, #dropdown-basic:active {
     background-color: #ff414e;
     color:#000000;
-    border: solid 1px #ff414e;
+    border: solid 1px #000000;
+}
+
+.form-control {
+    border: solid 1px #000000;
 }
 
 /* be more specific when overriding bootsrap styling */

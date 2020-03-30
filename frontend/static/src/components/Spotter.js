@@ -103,19 +103,19 @@ class Spotter extends Component {
               
       <div className="row justify-content-center">
         <CardDeck  className="w-50 mt-5">
-          <Card className="custom-card text-white">
+          <Card className="card-style">
             <Card.Img src={this.state.beer_label_hd || this.state.beer_label} variant="top" className="" />
             <Card.Body >
               <Card.Title> <h1>{this.state.beer_name}</h1></Card.Title>
               <Card.Text>{this.state.beer_style}</Card.Text>
-              <Card.Text className="text-muted" >ABV: {this.state.beer_abv} IBU: {this.state.beer_ibu}</Card.Text>
+              <Card.Text className="" >ABV: {this.state.beer_abv} IBU: {this.state.beer_ibu}</Card.Text>
               <Card.Text>{this.state.beer_description}</Card.Text>
-              <Card.Link href={this.state.url}>{this.state.brewery_name}</Card.Link>
+              <Card.Link className="custom-link text-large" href={this.state.url}>{this.state.brewery_name}</Card.Link>
               <Card.Text >{this.state.brewery_city}, {this.state.brewery_state}</Card.Text>
               <div className='w-100'></div>
               
               <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
+              <Dropdown.Toggle  className='' id="dropdown-basic">
                 Add to a Collection
               </Dropdown.Toggle>
               <Dropdown.Menu>
@@ -126,7 +126,7 @@ class Spotter extends Component {
               </Dropdown.Menu>
               </Dropdown>
               <div className='w-100'></div>
-              <Button  onClick={this.handleSearch} className="mt-3 btn-primary" >New Beer</Button>
+              <Button  onClick={this.handleSearch} className="mt-3" >New Beer</Button>
           </Card.Body>
         </Card>
         </CardDeck>

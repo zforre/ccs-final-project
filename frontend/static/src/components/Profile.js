@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import GroupList from '../components/GroupList.js'
-import {Card} from 'react-bootstrap'
+import {Card, Row} from 'react-bootstrap'
 import '../containers/App.css';
 import axios from 'axios';
 

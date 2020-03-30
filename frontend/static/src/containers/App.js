@@ -26,7 +26,7 @@ export default function App() {
   return (
     <Router>
       <div>
-        <Navbar bg='dark' variant="dark" defaultactivekey="/">
+        <Navbar  defaultactivekey="/">
           <Navbar.Brand href="/">brewSpotter</Navbar.Brand>
             <Nav className="mr-auto">
               <Nav.Link href="/profile/user">Profile</Nav.Link>
@@ -36,7 +36,7 @@ export default function App() {
             </Nav>
             <Form inline>
               <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-              <Button variant="outline-primary">Search</Button>
+              <Button >Search</Button>
             </Form>
         </Navbar>
         {/* A <Switch> looks through its children <Route>s and

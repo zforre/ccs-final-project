@@ -61,7 +61,7 @@ class GroupList extends Component {
                 <div className="collect ml-5 row">
                     {this.state.groups.map(group => 
                     <CardDeck key={group.id} style={{ width: '35rem' }}>
-                        <Card className="mt-5 mr-5 col-sm-12 col-6 card card-style" >
+                        <Card className="mt-5 mr-5 col-sm-12 col-6 card-style" >
                             <Row>
                                 <Card.Img src={group.image} variant="top" alt="Uploaded content" />
                             </Row>
