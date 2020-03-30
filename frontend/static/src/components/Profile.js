@@ -42,13 +42,15 @@ class Profile extends Component {
         return(
             <div>
             <div className="row">
-                 <Card bg="dark" text="white" className="mt-5 ml-5 col-sm-12 col-md-3" key={this.state.user} style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={this.state.avatar} />
+                 <Card className="mt-5 ml-5 col-sm-12 col-md-3 card-style" key={this.state.user} style={{ width: '18rem' }}>
+                    <Row>
+                        <Card.Img variant="top" src={this.state.avatar} />
+                    </Row>
                     <Card.Body>
                         <Card.Title>{this.state.user.username}</Card.Title>
                         <Card.Text>{this.state.bio}</Card.Text>
-                        <Card.Text className="text-muted">{this.state.location}</Card.Text>
-                        <Card.Link href="/profileedit" >Edit Profile</Card.Link>
+                        <Card.Text className="">{this.state.location}</Card.Text>
+                        <Card.Link href="/profileedit" className="custom-link"><i class="fa fa-pencil"></i></Card.Link>
                     </Card.Body>
                 </Card>
             </div>

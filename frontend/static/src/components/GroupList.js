@@ -61,21 +61,21 @@ class GroupList extends Component {
                 <div className="collect ml-5 row">
                     {this.state.groups.map(group => 
                     <CardDeck key={group.id} style={{ width: '35rem' }}>
-                        <Card bg="dark" text="white" className="mt-5 mr-5 col-sm-12 col-6" >
+                        <Card className="mt-5 mr-5 col-sm-12 col-6 card card-style" >
                             <Row>
                                 <Card.Img src={group.image} variant="top" alt="Uploaded content" />
                             </Row>
                             <Card.Body>
                                 <Card.Title>{group.title}</Card.Title>
                                 <Card.Text>{group.description}</Card.Text>
-                                <Card.Link href={`/GroupDetail/${group.id}`} className="alert-link">View Collection</Card.Link>
-                                <Card.Link onClick={() => this.handleDelete(group)} type="submit" className="text-danger">Remove</Card.Link>
+                                <Card.Link href={`/GroupDetail/${group.id}`} className="custom-link"><i class="fa fa-binoculars"></i></Card.Link>
+                                <Card.Link onClick={() => this.handleDelete(group)} type="submit" className="custom-link"><i class="fa fa-trash"></i></Card.Link>
                             </Card.Body>
                         </Card>
                     </CardDeck>)}
                 </div>
             <div className="row">
-                <Button href="/GroupForm" variant="primary" className="mt-5 mb-5">Create new Collection</Button>
+                <Button href="/GroupForm" variant="primary" className="mt-5 mb-5"><i class="fa fa-plus-circle"></i></Button>
             </div>
             </Container>
         )

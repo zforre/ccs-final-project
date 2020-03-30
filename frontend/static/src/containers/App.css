@@ -1,27 +1,36 @@
 
-.custom-card {
-    background-color: #494949;
-    color: #E0D5D5;
+.card-style {
+    background-color: #ff414e;
+    color: #000000;
+    border: none;
+    filter: drop-shadow(0 0 0.3rem #000000);
 }
 
 body {
-    background-color: #494949; 
+    background-color: #FBD25A; 
 }
 
 .custom-link {
-    color: #EA7044;
+    color: #000000;
+    font-size: large;
+}
+
+.custom-link:hover {
+    font-weight: bold;
+    color: #FBD25A;
 }
 
 .btn-primary {
-    border: solid 2px #EA7044;
-    color: #EA7044;
-    background-color: #494949;
+    border: solid 1px #000000;
+    color: #000000;
+    background-color: #FBD25A;
+    font-size: large;
 }
 
 .btn-primary:hover {
-    border: solid 2px #EA7044;
-    background-color: #EA7044;
-    color: #494949;
+    background-color: #ff414e;
+    color:#000000;
+    border: solid 1px #ff414e;
 }
 
 /* be more specific when overriding bootsrap styling */
