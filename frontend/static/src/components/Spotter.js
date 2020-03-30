@@ -104,7 +104,7 @@ class Spotter extends Component {
       <div className="row justify-content-center">
         <CardDeck  className="w-50 mt-5">
           <Card className="card-style">
-            <Card.Img src={this.state.beer_label_hd || this.state.beer_label} variant="top" className="" />
+            <Card.Img src={this.state.beer_label_hd || 'https://ccs-student-zforre.s3.amazonaws.com/images/spotterlogo.png'} variant="top" className="spot-image" />
             <Card.Body >
               <Card.Title> <h1>{this.state.beer_name}</h1></Card.Title>
               <Card.Text>{this.state.beer_style}</Card.Text>
