@@ -68,14 +68,14 @@ class GroupList extends Component {
                             <Card.Body>
                                 <Card.Title>{group.title}</Card.Title>
                                 <Card.Text>{group.description}</Card.Text>
-                                <Card.Link href={`/GroupDetail/${group.id}`} className="custom-link"><i class="fa fa-binoculars"></i></Card.Link>
+                                <Card.Link href={`/groupdetail/${group.id}`} className="custom-link"><i class="fa fa-binoculars"></i></Card.Link>
                                 <Card.Link onClick={() => this.handleDelete(group)} type="submit" className="custom-link"><i class="fa fa-trash"></i></Card.Link>
                             </Card.Body>
                         </Card>
                     </CardDeck>)}
                 </div>
             <div className="row">
-                <Button href="/GroupForm" variant="primary" className="mt-5 mb-5"><i class="fa fa-plus-circle"></i></Button>
+                <Button href="/groupform" variant="primary" className="mt-5 mb-5"><i class="fa fa-plus-circle"></i></Button>
             </div>
             </Container>
         )
