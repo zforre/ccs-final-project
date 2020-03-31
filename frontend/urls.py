@@ -18,3 +18,5 @@ urlpatterns = [
     path('groupform/', views.IndexView.as_view(), name='form'),
     path('', views.IndexView.as_view(), name='index'),
 ]
+
+# get the urls to work on heroku!
