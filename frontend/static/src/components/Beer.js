@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Figure} from 'react-bootstrap'
+import { Card, CardDeck, Container} from 'react-bootstrap'
 import '../containers/App.css';
 import axios from 'axios';
 
@@ -44,15 +44,19 @@ class Beer extends Component {
     render() {
         console.log(this.state.beers);
         return(
-            <div>
-            {this.state.beers.map(beer => 
-                <Figure key={beer.beer_name} className="mt-3 mr-3 beeritem">
-                    <Figure.Image width={120} height={120} alt="beer" src={beer.beer_label} className='beer-image'/>
-                    <Figure.Caption className="custom-text">
-                        {beer.beer_name}
-                    </Figure.Caption>
-                </Figure>)}
-            </div>
+            <Container>
+                <div className="row w-100">
+                    {this.state.beers.map(beer => 
+                    <Card className="beers col-3" key={beer.beer_name}>
+                        <Card.Img className="beers-img" variant="top" src={beer.beer_label} />
+                        <Card.Body>
+                            <Card.Title>{beer.beer_name}</Card.Title>
+                            <Card.Text>{beer.brewery_name}</Card.Text>
+                            <Card.Text>{beer.brewery_state}</Card.Text>
+                        </Card.Body>
+                    </Card>)}
+                </div>
+            </Container>
             
         )
     }

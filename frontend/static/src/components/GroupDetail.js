@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Beer from './Beer.js'
-import {CardDeck, Card} from 'react-bootstrap'
+import {CardDeck, Card, Container, Row, Col} from 'react-bootstrap'
 import '../containers/App.css';
 import axios from 'axios';
 
@@ -42,25 +42,32 @@ class GroupDetail extends Component {
     render() {
         // console.log(this.state);
         return(
-            <div className="row justify-content-center">
+            <Container>
                 
-            <CardDeck key={this.state.id} className="mt-5 col-11">
-                <Card className="card-style">
-                    
-                    <Card.Img src={this.state.image} variant="top" className="blur" />
-                    <Card.Body >
-                    <Card.Title> <h1>{this.state.title} </h1></Card.Title>
-                    <Card.Text>
-                        {this.state.description}
-                    </Card.Text>
-                    <Card.Link href={`/groupupdate/${this.state.id}`} className="custom-link"><i class="fa fa-pencil"></i></Card.Link>
-                    <Beer group={this.props.match.params.id} />
-                    <div className="w-100"></div>
-                    <small className="">Last updated 3 mins ago</small>
-                    </Card.Body>
+            <CardDeck className="row mt-5" key={this.state.id}>
+                <Card className="card-style col">
+                    <Row>
+                        <Card.Img src={this.state.image} variant="top" />
+                        <Card.ImgOverlay>
+                            <Row>
+                                <div className="circle ml-3">
+                                    <Card.Link href={`/groupupdate/${this.state.id}`} className="custom-link edit"><i class="fa fa-pencil"></i></Card.Link>
+                                </div>
+                            </Row>
+                        </Card.ImgOverlay>
+                    </Row>
+                    <Row>
+                        <Card.Body >
+                            <Card.Title className="ml-3"> <h1>{this.state.title} </h1> </Card.Title>
+                            <Card.Text className="ml-4">
+                                {this.state.description}
+                            </Card.Text>
+                            <Beer group={this.props.match.params.id} />
+                        </Card.Body>
+                    </Row>
                 </Card>
             </CardDeck>
-            </div>
+            </Container>
             
         )
     }
