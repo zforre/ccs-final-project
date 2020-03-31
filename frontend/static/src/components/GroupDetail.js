@@ -53,7 +53,7 @@ class GroupDetail extends Component {
                     <Card.Text>
                         {this.state.description}
                     </Card.Text>
-                    <Card.Link href={`/GroupUpdate/${this.state.id}`} className="custom-link"><i class="fa fa-pencil"></i></Card.Link>
+                    <Card.Link href={`/groupupdate/${this.state.id}`} className="custom-link"><i class="fa fa-pencil"></i></Card.Link>
                     <Beer group={this.props.match.params.id} />
                     <div className="w-100"></div>
                     <small className="">Last updated 3 mins ago</small>
