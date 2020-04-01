@@ -1,7 +1,7 @@
 
 .card-style {
-    background-color: #ff414e;
-    color: #000000;
+    background-color: #000;
+    color: #fff;
     border: none;
     filter: drop-shadow(0 0 0.3rem #ff8928);
 }
@@ -11,7 +11,7 @@ body {
 }
 
 .custom-link {
-    color: #000000;
+    color: #ff414e;
     font-size: large;
 }
 .custom-text {
@@ -25,41 +25,34 @@ body {
 }
 
 .spot-img {
-    margin-top: 15px;
-    height: 420px;
+    margin-top: 20px;
+    height: 460px;
 }
 
 .spot-img-card {
-    height: 450px;
+    height: 500px;
+    background-color: #fff ;
+    filter: drop-shadow(0 0 0.3rem #ff8928);
 }
-
-
 
 .circle {
     border-radius: 100px;
-    background: #ff414e;
+    background: #000;
     width: 50px;
     height: 50px;
     padding-top: 10px;
     padding-left: 18px;
 }
 
-.beer-image {
-    border-radius: 2px;
-    border: solid 1px #000000;
-    padding: 5px;
-    background-color: #ffffff;
-}
-
 .btn-primary, #dropdown-basic {
     border: solid 1px #000000;
     color: #000000;
-    background-color: #FBD25A;
+    background-color: #ff414e;
     font-size: large;
 }
 
 .btn-primary:hover, #dropdown-basic:active {
-    background-color: #ff414e;
+    background-color: #FBD25A;
     color:#000000;
     border: solid 1px #000000;
 }
@@ -67,5 +60,7 @@ body {
 .form-control {
     border: solid 1px #000000;
 }
-
+.fa-trash:before {
+    color: #ff414e;
+}
 /* be more specific when overriding bootsrap styling */

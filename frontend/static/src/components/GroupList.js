@@ -56,9 +56,9 @@ class GroupList extends Component {
         // console.log('group list', this.props)
         // console.log(this.state.groups)
         return(
-            <Container>
+            <Container className="justify-content-center">
                 <h3 className="mt-5">My Collection's</h3>
-                <div className="collect ml-5 row">
+                <div className="collect row w-100 justify-content-center">
                     {this.state.groups.map(group => 
                     <CardDeck key={group.id} style={{ width: '35rem' }}>
                         <Card className="mt-5 mr-5 col-sm-12 col-6 card-style" >
@@ -68,15 +68,15 @@ class GroupList extends Component {
                             <Card.Body>
                                 <Card.Title>{group.title}</Card.Title>
                                 <Card.Text>{group.description}</Card.Text>
-                                <Card.Link href={`/groupdetail/${group.id}`} className="custom-link"><i class="fa fa-binoculars"></i></Card.Link>
-                                <Card.Link onClick={() => this.handleDelete(group)} type="submit" className="custom-link"><i class="fa fa-trash"></i></Card.Link>
+                                <Card.Link href={`/groupdetail/${group.id}`} className="custom-link"><i className="fa fa-binoculars"></i></Card.Link>
+                                <Card.Link className="custom-link" onClick={() => this.handleDelete(group)} type="submit"><i className="fa fa-trash"></i></Card.Link>
                             </Card.Body>
                         </Card>
                     </CardDeck>)}
+                    <div className="row w-100">
+                        <Button href="/groupform" variant="primary" className="col mt-5 mb-5"><i className="fa fa-plus-circle"></i></Button>
+                    </div>
                 </div>
-            <div className="row">
-                <Button href="/groupform" variant="primary" className="mt-5 mb-5"><i class="fa fa-plus-circle"></i></Button>
-            </div>
             </Container>
         )
     }

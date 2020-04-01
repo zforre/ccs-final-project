@@ -45,12 +45,18 @@ class Profile extends Component {
                  <Card className="mt-5 ml-5 col-sm-12 col-md-3 card-style" key={this.state.user} style={{ width: '18rem' }}>
                     <Row>
                         <Card.Img variant="top" src={this.state.avatar} />
+                        <Card.ImgOverlay>
+                            <Row>
+                                <div className="circle ml-3">
+                                    <Card.Link href="/profileedit" className="custom-link"><i className="fa fa-pencil"></i></Card.Link>
+                                </div>
+                            </Row>
+                        </Card.ImgOverlay> 
                     </Row>
                     <Card.Body>
                         <Card.Title>{this.state.user.username}</Card.Title>
                         <Card.Text>{this.state.bio}</Card.Text>
                         <Card.Text className="">{this.state.location}</Card.Text>
-                        <Card.Link href="/profileedit" className="custom-link"><i class="fa fa-pencil"></i></Card.Link>
                     </Card.Body>
                 </Card>
             </div>
