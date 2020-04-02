@@ -26,19 +26,6 @@ export default function App() {
   return (
     <Router>
       <div>
-        {/* <Navbar  defaultactivekey="/">
-          <Navbar.Brand href="/">brewSpotter</Navbar.Brand>
-            <Nav className="mr-auto">
-              <Nav.Link href="/profile/user">Profile</Nav.Link>
-              <Nav.Link href="/signup">Create an Account</Nav.Link>
-              <Nav.Link href="/login">Log In</Nav.Link>
-              <Nav.Link onClick={logOut} href="/login">Log Out</Nav.Link>
-            </Nav>
-            <Form inline>
-              <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-              <Button >Search</Button>
-            </Form>
-        </Navbar> */}
         <Navbar collapseOnSelect expand="lg" defaultactivekey="/">
           <Navbar.Brand href="/">brewSpotter</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
