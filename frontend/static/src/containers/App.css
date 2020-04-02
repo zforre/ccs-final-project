@@ -35,6 +35,10 @@ body {
     filter: drop-shadow(0 0 0.3rem #ff8928);
 }
 
+.logo {
+    max-width: 120px;
+}
+
 .circle {
     border-radius: 100px;
     background: #000;

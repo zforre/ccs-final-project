@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from "axios";
 import {Card, CardDeck, Button, Dropdown, Row} from 'react-bootstrap'
 import '../containers/App.css';
+import untappd_logo from '../images/pbu_80_white.png'
 
 
 
@@ -131,6 +132,7 @@ class Spotter extends Component {
               </Dropdown>
               <div className='w-100'></div>
               <Button  onClick={this.handleSearch} className="mt-3" >New Beer</Button>
+              <div className="mt-4 row justify-content-center"><img src={untappd_logo} className="logo col"/></div>
           </Card.Body>
         </Card>
         </CardDeck>
