@@ -42,7 +42,7 @@ class Profile extends Component {
         return(
             <div>
             <div className="row">
-                 <Card className="mt-5 ml-5 col-sm-12 col-md-3 card-style" key={this.state.user} style={{ width: '18rem' }}>
+                 <Card className="m-5 col-md-3 card-style" key={this.state.user} style={{ width: '18rem' }}>
                     <Row>
                         <Card.Img variant="top" src={this.state.avatar} />
                         <Card.ImgOverlay>

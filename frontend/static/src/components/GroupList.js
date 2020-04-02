@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Card, CardDeck, Button, Row, Container} from 'react-bootstrap';
+import {Card, CardDeck, Button, Row, Col, Container} from 'react-bootstrap';
 import '../containers/App.css';
 import axios from 'axios';
 
@@ -57,11 +57,12 @@ class GroupList extends Component {
         // console.log(this.state.groups)
         return(
             <Container className="justify-content-center">
-                <h3 className="mt-5">My Collection's</h3>
-                <div className="collect row w-100 justify-content-center">
+                <div className="collect row  justify-content-center">
+                    <h3>My Collection's</h3>
+                    <div className="row w-100"></div>
                     {this.state.groups.map(group => 
-                    <CardDeck key={group.id} style={{ width: '35rem' }}>
-                        <Card className="mt-5 mr-5 col-sm-12 col-6 card-style" >
+                    // <CardDeck key={group.id} style={{ width: '35rem' }}>
+                        <Card className="m-3 col-8 card-style" >
                             <Row>
                                 <Card.Img src={group.image} variant="top" alt="Uploaded content" />
                             </Row>
@@ -71,11 +72,10 @@ class GroupList extends Component {
                                 <Card.Link href={`/groupdetail/${group.id}`} className="custom-link"><i className="fa fa-binoculars"></i></Card.Link>
                                 <Card.Link className="custom-link" onClick={() => this.handleDelete(group)} type="submit"><i className="fa fa-trash"></i></Card.Link>
                             </Card.Body>
-                        </Card>
-                    </CardDeck>)}
-                    <div className="row w-100">
-                        <Button href="/groupform" variant="primary" className="col mt-5 mb-5"><i className="fa fa-plus-circle"></i></Button>
-                    </div>
+                        </Card>)}
+                     {/* </CardDeck>)} */}
+                    <div className="row w-100"></div>
+                    <Button href="/groupform" variant="primary" className="col-8 mt-5 mb-5"><i className="fa fa-plus-circle"></i></Button>
                 </div>
             </Container>
         )

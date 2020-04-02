@@ -104,12 +104,12 @@ class Spotter extends Component {
       <div className="container">     
       <div className="row justify-content-center">
         <CardDeck  className="w-100 mt-5">
-          <Card className="col-6 spot-img-card">
+          <Card className="col col-md-6 spot-img-card">
             <Row>
             <Card.Img src={this.state.beer_label_hd || this.state.beer_label} className="col spot-img" />
             </Row>
           </Card>
-          <Card className="col-6 card-style">
+          <Card className="col col-md-6 card-style">
             <Card.Body >
               <Card.Title> <h1>{this.state.beer_name}</h1></Card.Title>
               <Card.Text>{this.state.beer_style}</Card.Text>
