@@ -10,6 +10,7 @@ import GroupList from '../components/GroupList.js';
 import GroupDetail from '../components/GroupDetail.js';
 import GroupForm from '../components/GroupForm.js';
 import GroupUpdate from '../components/GroupEdit.js';
+import NavBar from '../components/Header.js';
 import {Navbar} from 'react-bootstrap';
 import './App.css';
 import {
@@ -26,7 +27,8 @@ export default function App() {
   return (
     <Router>
       <div>
-        <Navbar collapseOnSelect expand="lg" defaultactivekey="/">
+        <NavBar/>
+        {/* <Navbar collapseOnSelect expand="lg" defaultactivekey="/">
           <Navbar.Brand href="/">brewSpotter</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
@@ -37,7 +39,7 @@ export default function App() {
               <Nav.Link onClick={logOut} href="/login">Log Out</Nav.Link>
             </Nav>
           </Navbar.Collapse>
-        </Navbar>
+        </Navbar> */}
         <Switch>
           <Route path="/groupform" component={GroupForm}/>
           <Route path="/groupupdate/:id" component={GroupUpdate}/>
