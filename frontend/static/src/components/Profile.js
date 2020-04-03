@@ -25,8 +25,6 @@ class Profile extends Component {
 
     componentDidMount() {
 
-        
-
         axios.get(`${BASE_URL}/api/v1/profile/user/`)
         .then((res) => {
             console.log(res.data)

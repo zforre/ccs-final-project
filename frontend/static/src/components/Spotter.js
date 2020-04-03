@@ -3,6 +3,7 @@ import axios from "axios";
 import {Card, CardDeck, Button, Dropdown, Row} from 'react-bootstrap'
 import '../containers/App.css';
 import untappd_logo from '../images/pbu_80_white.png'
+import spotter_logo from '../images/spotterlogo.png'
 
 
 
@@ -106,7 +107,7 @@ class Spotter extends Component {
         <CardDeck  className="w-100 mt-5">
           <Card className="col col-md-6 spot-img-card">
             <Row>
-            <Card.Img src={this.state.beer_label_hd || this.state.beer_label} className="col spot-img" />
+            <Card.Img src={this.state.beer_label_hd || spotter_logo} className="col spot-img" />
             </Row>
           </Card>
           <Card className="col col-md-6 card-style">

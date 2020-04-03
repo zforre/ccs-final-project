@@ -61,11 +61,7 @@ class LogIn extends Component {
                     <Form.Group controlId="formBasicEmail" >
                         <Form.Label className="Form-label">Email:</Form.Label>
                         <Form.Control type="email" name="email" value={this.state.email} onChange={this.handleChange} placeholder='Enter email' required />
-                        <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
-                        </Form.Text>
                     </Form.Group>
-
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label className="Form-label">Password:</Form.Label>
                         <Form.Control type="password" name="password" value={this.state.password} onChange={this.handleChange} placeholder='Enter password' required />

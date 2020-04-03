@@ -10,7 +10,7 @@ import GroupList from '../components/GroupList.js';
 import GroupDetail from '../components/GroupDetail.js';
 import GroupForm from '../components/GroupForm.js';
 import GroupUpdate from '../components/GroupEdit.js';
-import {Navbar, Form, FormControl, Button} from 'react-bootstrap';
+import {Navbar} from 'react-bootstrap';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -31,17 +31,14 @@ export default function App() {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
-            <Nav.Link href="/profile/user">Profile</Nav.Link>
+              <Nav.Link href="/profile/user">Profile</Nav.Link>
               <Nav.Link href="/signup">Create an Account</Nav.Link>
               <Nav.Link href="/login">Log In</Nav.Link>
               <Nav.Link onClick={logOut} href="/login">Log Out</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
-          
           <Route path="/groupform" component={GroupForm}/>
           <Route path="/groupupdate/:id" component={GroupUpdate}/>
           <Route path="/groupdetail/:id" component={GroupDetail}/>

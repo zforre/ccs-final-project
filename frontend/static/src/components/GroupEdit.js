@@ -61,6 +61,7 @@ class GroupUpdate extends Component {
         .then(res => {
     
           console.log(res);
+          this.props.history.push('/profile/user');
         })
         .catch(error => {
     
@@ -88,7 +89,9 @@ class GroupUpdate extends Component {
                     </Form.Group>
 
                     <Form.Group controlId="formBasicCheckbox">
-                        <Form.Check type="switch" id="custom-switch" label="Make This Collection Private"/>
+                        <Form.Text className="text-muted" >
+                        Make sure you update all fields before saving
+                        </Form.Text>
                     </Form.Group>
 
                     <Button variant="primary" type="submit">
