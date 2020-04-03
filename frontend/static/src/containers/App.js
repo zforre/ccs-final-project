@@ -1,5 +1,4 @@
 import React from 'react';
-import Nav from 'react-bootstrap/Nav';
 import SignUp from '../components/SignUp.js';
 import Spotter from '../components/Spotter.js';
 import ProfileSetup from '../components/ProfileSetup';
@@ -11,16 +10,15 @@ import GroupDetail from '../components/GroupDetail.js';
 import GroupForm from '../components/GroupForm.js';
 import GroupUpdate from '../components/GroupEdit.js';
 import NavBar from '../components/Header.js';
-import {Navbar} from 'react-bootstrap';
 import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL
+// const BASE_URL = process.env.REACT_APP_BASE_URL
 
 
 export default function App() {
@@ -57,15 +55,15 @@ export default function App() {
   );
 }
 
-function logOut() {
-  axios.post(`${BASE_URL}/rest-auth/logout/`)
-    .then(res => {
-        localStorage.removeItem('my-app-user');
-        console.log('one', res);
-        // this.context.history.push('/login');
-    })
-    .catch(error => {
-        console.log(error);
-    });
-}
+// function logOut() {
+//   axios.post(`${BASE_URL}/rest-auth/logout/`)
+//     .then(res => {
+//         localStorage.removeItem('my-app-user');
+//         console.log('one', res);
+//         // this.context.history.push('/login');
+//     })
+//     .catch(error => {
+//         console.log(error);
+//     });
+// }
 

@@ -12,6 +12,7 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
 const CLIENT_ID = process.env.REACT_APP_UNTAPPD_CLIENT_ID
 const CLIENT_SECRET = process.env.REACT_APP_UNTAPPD_CLIENT_SECRET
+const ACCESS_TOKEN = process.env.REACT_APP_UNTAPPD_ACCESS_TOKEN
 
 const BASE_URL= process.env.REACT_APP_BASE_URL
 
@@ -62,7 +63,7 @@ class Spotter extends Component {
 
   handleSearch() {
     const RANDOM_BEER = Math.floor(Math.random() * (2000 - 1 + 1)) + 1; //returns random number for beer some beers are broken
-    axios.get(`https://api.untappd.com/v4/beer/info/${RANDOM_BEER}?client_id=${CLIENT_ID}&client_secret=${CLIENT_SECRET}`)        
+    axios.get(`https://api.untappd.com/v4/beer/info/${RANDOM_BEER}?access_token=${ACCESS_TOKEN}`)        
     .then(res => {
         console.log(res);
         this.setState(res.data.response.beer);

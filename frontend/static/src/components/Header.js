@@ -60,7 +60,7 @@ axios.defaults.headers.common["Authorization"] = localStorage.getItem('my-app-us
 class NavBar extends Component {
 
     logout = () => {
-        axios.post('/api/v1/rest-auth/logout/');
+        axios.post(`${BASE_URL}/api/v1/rest-auth/logout/`);
         localStorage.removeItem('my-app-user');
     }
 

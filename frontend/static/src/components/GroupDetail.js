@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Beer from './Beer.js'
-import {CardDeck, Card, Container, Row, Col} from 'react-bootstrap'
+import {CardDeck, Card, Container, Row} from 'react-bootstrap'
 import '../containers/App.css';
 import axios from 'axios';
 
