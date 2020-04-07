@@ -185,3 +185,6 @@ AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 
 # CATALOG_BEER_API_KEY = os.environ['CATALOG_BEER_API_KEY']
+REST_AUTH_SERIALIZERS = {
+    'TOKEN_SERIALIZER': 'accounts.serializers.TokenSerializer',
+}
