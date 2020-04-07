@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import GroupList from '../components/GroupList.js'
-import {Card, Row} from 'react-bootstrap'
+import {Card, Row, Container} from 'react-bootstrap'
 import '../containers/App.css';
 import axios from 'axios';
 
@@ -38,8 +38,8 @@ class Profile extends Component {
     render() {
         // console.log(this.state);
         return(
-            <div>
-            <div className="row">
+            <Container>
+            <Row>
                  <Card className="m-5 col-md-3 card-style" key={this.state.user} style={{ width: '18rem' }}>
                     <Row>
                         <Card.Img variant="top" src={this.state.avatar} />
@@ -57,9 +57,9 @@ class Profile extends Component {
                         <Card.Text className="">{this.state.location}</Card.Text>
                     </Card.Body>
                 </Card>
-            </div>
+            </Row>
                 <GroupList />
-            </div>
+            </Container>
             
         )
     }

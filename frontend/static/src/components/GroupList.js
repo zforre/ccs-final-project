@@ -62,7 +62,7 @@ class GroupList extends Component {
                     <div className="row w-100"></div>
                     {this.state.groups.map(group => 
                     // <CardDeck key={group.id} style={{ width: '35rem' }}>
-                        <Card className="m-3 col-8 card-style" >
+                        <Card className="m-3 col-8 col-md-4 card-style" >
                             <Row>
                                 <Card.Img src={group.image} variant="top" alt="Uploaded content" />
                             </Row>
@@ -75,7 +75,7 @@ class GroupList extends Component {
                         </Card>)}
                      {/* </CardDeck>)} */}
                     <div className="row w-100"></div>
-                    <Button href="/groupform" variant="primary" className="col-8 mt-5 mb-5"><i className="fa fa-plus-circle"></i></Button>
+                    <Button href="/groupform" variant="primary" className="col-8 mt-3 mb-5"><i className="fa fa-plus-circle"></i></Button>
                 </div>
             </Container>
         )
