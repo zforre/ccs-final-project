@@ -32,7 +32,7 @@ class GroupDetail extends Component {
         axios.get(`${BASE_URL}/api/v1/${id}`)
         .then((res) => {
             console.log(res.data)
-            this.setState(() => ( res.data ))
+            this.setState({...res.data})
         })
         .catch(error => {
             console.log(error);
@@ -51,7 +51,7 @@ class GroupDetail extends Component {
                         <Card.ImgOverlay>
                             <Row>
                                 <div className="circle ml-3">
-                                    <Card.Link href={`/groupupdate/${this.state.id}`} className="custom-link edit"><i class="fa fa-pencil"></i></Card.Link>
+                                    <Card.Link href={`/groupupdate/${this.state.id}`} className="custom-link edit"><i className="fa fa-pencil"></i></Card.Link>
                                 </div>
                             </Row>
                         </Card.ImgOverlay>
