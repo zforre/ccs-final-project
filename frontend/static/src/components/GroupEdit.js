@@ -10,7 +10,7 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 const BASE_URL = process.env.REACT_APP_BASE_URL
 
 class GroupUpdate extends Component {
-    constructor(props) {
+      constructor(props) {
         super(props)
         this.state = {
             id: '',
@@ -23,7 +23,26 @@ class GroupUpdate extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleImage = this.handleImage.bind(this);
-    }
+      }
+
+      componentDidMount() {
+        const options = {
+          headers: {
+            'Authorization': `Token ${JSON.parse(localStorage.getItem('my-app-user')).key}`,
+          }
+        }
+  
+        const { id } = this.props.match.params
+  
+        axios.get(`/api/v1/${id}/`, options)
+        .then((res) => {
+            // console.log('res', res);
+            this.setState(res.data)
+        })
+        .catch(error => {
+            console.log('error', error);
+        })
+      }
 
       handleChange(e) {
         this.setState({[e.target.name]: e.target.value});
