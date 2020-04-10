@@ -24,8 +24,13 @@ class Profile extends Component {
     }
 
     componentDidMount() {
+        const options = {
+            headers: {
+              'Authorization': `Token ${JSON.parse(localStorage.getItem('my-app-user')).key}`,
+            }
+          }
 
-        axios.get(`${BASE_URL}/api/v1/profile/user/`)
+        axios.get(`${BASE_URL}/api/v1/profile/user/`, options)
         .then((res) => {
             console.log(res.data)
             this.setState(res.data)
@@ -36,6 +41,11 @@ class Profile extends Component {
     }
 
     render() {
+        const profile = JSON.parse(localStorage.getItem('my-app-user')).profile;
+      if(!profile) {
+        this.props.history.push(`/profilesetup`);
+      }
+
         // console.log(this.state);
         return(
             <Container>
@@ -46,7 +56,7 @@ class Profile extends Component {
                         <Card.ImgOverlay>
                             <Row>
                                 <div className="circle ml-3">
-                                    <Card.Link href="/profileedit" className="custom-link"><i className="fa fa-pencil"></i></Card.Link>
+                                    <Card.Link href={`/profile/${profile}/edit`} className="custom-link"><i className="fa fa-pencil"></i></Card.Link>
                                 </div>
                             </Row>
                         </Card.ImgOverlay> 

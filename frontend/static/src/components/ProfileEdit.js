@@ -14,9 +14,7 @@ class ProfileEdit extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: '',
       avatar: null,
-      username: '',
       bio: '',
       location: '',
       birthdate: '',
@@ -25,6 +23,23 @@ class ProfileEdit extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleImage = this.handleImage.bind(this);
+  }
+
+  componentDidMount() {
+    const options = {
+      headers: {
+        'Authorization': `Token ${JSON.parse(localStorage.getItem('my-app-user')).key}`,
+      }
+    }
+
+    axios.get(`${BASE_URL}/api/v1/profile/user/`, options)
+    .then((res) => {
+        // console.log('res', res);
+        this.setState(res.data)
+    })
+    .catch(error => {
+        console.log('error', error);
+    })
   }
 
   handleSubmit(e) {

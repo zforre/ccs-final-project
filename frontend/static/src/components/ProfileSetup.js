@@ -84,13 +84,13 @@ class ProfileSetup extends Component {
                     <Form.Label className="Form-label">Location:</Form.Label>
                     <Form.Control  type="text" name="location" value={this.state.location} onChange={this.handleChange} placeholder='Greenville, SC' required />
                 </Form.Group>
-                <Form.Group>
+                {/* <Form.Group>
                     <Form.Label className="Form-label"> Birth date:</Form.Label>
                     <Form.Control  type="date" name="birthdate" value={this.state.birthdate} onChange={this.handleChange} placeholder='mm/dd/yyyy' required />
                     <Form.Text className="text-muted">
                             This will not be displayed on your profile page.
                     </Form.Text>
-                </Form.Group>
+                </Form.Group> */}
                 <Form.Group className="mb-5">
                     <Form.Label>Upload an Avatar Image</Form.Label>
                     <Form.Control type="file" name='avatar' onChange={this.handleImage}/>
