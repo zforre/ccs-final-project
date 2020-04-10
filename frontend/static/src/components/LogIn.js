@@ -32,11 +32,15 @@ class LogIn extends Component {
     e.preventDefault();
     axios.post(`${BASE_URL}/rest-auth/login/`, this.state)
     .then(res => {
-        console.log('one', res)
-        localStorage.setItem('my-app-user', JSON.stringify(res.data));
-        // this.props.history.push('/');
-        // window.location.reload(false);
-        this.props.history.push('/profile/user');
+      console.log('one', res)
+      localStorage.setItem('my-app-user', JSON.stringify(res.data));
+      // this.props.history.push('/');
+      // window.location.reload(false);
+      if(res.data.profile) {
+        this.props.history.push(`/profile/${res.data.profile}`);
+      } else {
+        this.props.history.push(`/profilesetup`);
+      }
     })
     .catch(error => {
         console.log(error);

@@ -58,7 +58,7 @@ class GroupForm extends Component {
         .then(res => {
     
           console.log(res);
-          this.props.history.push('/profile/user');
+          this.props.history.push(`/profile/${JSON.parse(localStorage.getItem('my-app-user')).profile}`);
         })
         .catch(error => {
     
