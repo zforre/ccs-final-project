@@ -25,6 +25,15 @@ class GroupList extends Component {
         this.handleDelete = this.handleDelete.bind(this);
     }
 
+    static getDerivedStateFromProps(props, state) {
+        if(props.groups) {
+          return {
+            groups: props.groups
+          }
+        }
+        return null
+    }
+  
     handleDelete(group) {
         console.log(this.state.id)
         axios.delete(`${BASE_URL}/api/v1/${group.id}`)
@@ -42,7 +51,12 @@ class GroupList extends Component {
     }
 
     componentDidMount() {
-        axios.get(`${BASE_URL}/api/v1/`)
+        const options = {
+            headers: {
+              'Authorization': `Token ${JSON.parse(localStorage.getItem('my-app-user')).key}`,
+            }
+        }
+        axios.get(`${BASE_URL}/api/v1/profile/user`, options)
         .then(result => {
             console.log(result);
             this.setState({groups: result.data})

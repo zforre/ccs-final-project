@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from rest_framework import generics
+from rest_framework import generics, authentication
 
 from .models import Group, Beer
 from .serializers import GroupSerializer, BeerSerializer, GroupBeerSerializer
@@ -8,6 +8,7 @@ from .serializers import GroupSerializer, BeerSerializer, GroupBeerSerializer
 class GroupListCreate(generics.ListCreateAPIView):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+    authentication_classes = [authentication.TokenAuthentication]
 
     def get_queryset(self):
         return Group.objects.filter(created_by=self.request.user)
@@ -18,19 +19,23 @@ class GroupListCreate(generics.ListCreateAPIView):
 class GroupRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
+    authentication_classes = [authentication.TokenAuthentication]
 
 class BeerListCreate(generics.ListCreateAPIView):
     queryset = Beer.objects.all()
     serializer_class = BeerSerializer
+    authentication_classes = [authentication.TokenAuthentication]
 
 class BeerRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Beer.objects.all()
     serializer_class = BeerSerializer
+    authentication_classes = [authentication.TokenAuthentication]
 
 
 class GroupBeerUpdate(generics.UpdateAPIView):
     queryset = Group.objects.all()
     serializer_class = GroupBeerSerializer
+    authentication_classes = [authentication.TokenAuthentication]
 
     def partial_update(self, request, *args, **kwargs):
 

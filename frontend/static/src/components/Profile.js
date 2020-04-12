@@ -30,10 +30,10 @@ class Profile extends Component {
             }
           }
 
-        axios.get(`${BASE_URL}/api/v1/profile/user/`, options)
+        axios.get(`${BASE_URL}/api/v1/`, options)
         .then((res) => {
             console.log(res.data)
-            this.setState(res.data)
+            this.setState({groups: res.data})
         })
         .catch(error => {
             console.log(error);
@@ -68,7 +68,7 @@ class Profile extends Component {
                     </Card.Body>
                 </Card>
             </Row>
-                <GroupList />
+                <GroupList groups={this.state.groups}/>
             </Container>
             
         )
