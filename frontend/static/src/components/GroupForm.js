@@ -85,9 +85,9 @@ class GroupForm extends Component {
                         <Form.Control type="file" name='image' onChange={this.handleImage}/>
                     </Form.Group>
 
-                    <Form.Group controlId="formBasicCheckbox">
+                    {/* <Form.Group controlId="formBasicCheckbox">
                         <Form.Check type="switch" id="custom-switch" label="Make This Collection Private"/>
-                    </Form.Group>
+                    </Form.Group> */}
 
                     <Button variant="primary" type="submit">
                         Submit

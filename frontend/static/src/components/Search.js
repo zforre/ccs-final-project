@@ -103,7 +103,7 @@ class Search extends Component {
         // console.log('props', this.state.results);
     
         const results = this.state.results.map(result => (
-          <div className="col-4" key={result.beer.bid}>
+          <div className="col-4 mt-3" key={result.beer.bid}>
             <img className="mb-3" height="100" width="100" alt="label" src={result.beer.beer_label}/>
             <h4>{result.beer.beer_name}</h4>
             <h5>{result.brewery.brewery_name}</h5>
@@ -119,11 +119,12 @@ class Search extends Component {
               <Card className="col mt-5 card-style">
                 <Card.Body >
                     <div className='w-100'></div>
-                    <Form inline>
+                    <Row>
+                    <Form inline className="col">
                         <FormControl type="text" name='search' value={this.state.search} onChange={this.handleInput} placeholder="Search by name" className="mr-sm-2" />
                         <Button className="btn-primary" onClick={this.handleSearch}>Search</Button>
                     </Form>
-                    <Dropdown className="mt-3 mb-5">
+                    <Dropdown className=" col">
                         <Dropdown.Toggle  className='' id="dropdown-basic">
                         {this.state.selectedGroup || 'Select Collection'}
                     </Dropdown.Toggle>
@@ -134,6 +135,7 @@ class Search extends Component {
                         </Dropdown.Item>)}
                     </Dropdown.Menu>
                     </Dropdown>
+                    </Row>
                     <Row>
                     {results}
                     </Row>
