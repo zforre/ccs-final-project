@@ -49,6 +49,7 @@ class ProfileSetup extends Component {
         .then(res => {
     
           console.log(res);
+          this.props.history.push('/profile/user');
         })
         .catch(error => {
     

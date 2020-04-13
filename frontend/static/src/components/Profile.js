@@ -38,6 +38,14 @@ class Profile extends Component {
         .catch(error => {
             console.log(error);
         })
+        axios.get(`${BASE_URL}/api/v1/profile/user`, options)
+        .then((res) => {
+            console.log(res.data)
+            this.setState(res.data)
+        })
+        .catch(error => {
+            console.log(error);
+        })
     }
 
     render() {
@@ -56,7 +64,7 @@ class Profile extends Component {
                         <Card.ImgOverlay>
                             <Row>
                                 <div className="circle ml-3">
-                                    <Card.Link href={`/profile/${profile}/edit`} className="custom-link"><i className="fa fa-pencil"></i></Card.Link>
+                                    <Card.Link href={`${BASE_URL}/profile/${profile}/edit`} className="custom-link"><i className="fa fa-pencil"></i></Card.Link>
                                 </div>
                             </Row>
                         </Card.ImgOverlay> 

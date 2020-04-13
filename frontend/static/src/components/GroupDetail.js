@@ -44,8 +44,8 @@ class GroupDetail extends Component {
         return(
             <Container>
                 
-            <CardDeck className="row mt-5" key={this.state.id}>
-                <Card className="card-style col">
+            <CardDeck className="row mt-5 justify-content-center" key={this.state.id}>
+                <Card className="card-style col-9">
                     <Row>
                         <Card.Img src={this.state.image} variant="top" />
                         <Card.ImgOverlay>
@@ -54,6 +54,7 @@ class GroupDetail extends Component {
                                     <Card.Link href={`/groupupdate/${this.state.id}`} className="custom-link edit"><i className="fa fa-pencil"></i></Card.Link>
                                 </div>
                             </Row>
+                            
                         </Card.ImgOverlay>
                     </Row>
                     <Row>

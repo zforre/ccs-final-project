@@ -4,6 +4,7 @@ import {Card, CardDeck, Button, Dropdown, Row} from 'react-bootstrap'
 import '../containers/App.css';
 import untappd_logo from '../images/pbu_80_white.png'
 import spotter_logo from '../images/spotterlogo.png'
+import Search from './Search';
 
 
 
@@ -14,31 +15,27 @@ const ACCESS_TOKEN = process.env.REACT_APP_UNTAPPD_ACCESS_TOKEN
 
 const BASE_URL= process.env.REACT_APP_BASE_URL
 
-// function randomNumber(min, max) {  
-//     min = Math.ceil(min); 
-//     max = Math.floor(max); 
-//     return Math.floor(Math.random() * (max - min + 1)) + min; 
-// }  
-
-// const RANDOM_BEER = randomNumber(1, 2000);
-
 class Spotter extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
       beer_name: "",
-      beer_label: "",
-      beer_label_hd: "",
-      beer_abv: "",
-      beer_ibu: "",
-      beer_style: "",
-      beer_description: "",
-      brewery_name: "",
-      brewery_city: "",
-      brewery_state: "",
-      url: "",
-      groups: [],
+        beer_label: "",
+        beer_label_hd: "",
+        beer_abv: "",
+        beer_ibu: "",
+        beer_style: "",
+        beer_description: "",
+        brewery_name: "",
+        brewery_city: "",
+        brewery_state: "",
+        url: "",
+        groups: [],
+        selectedGroup: null,
+        search: "",
+        comments: "",
+        results: []
     }
 
     this.handleSearch = this.handleSearch.bind(this);
@@ -46,9 +43,14 @@ class Spotter extends Component {
   }
 
   componentDidMount() {
-    this.handleSearch()
+    const options = {
+      headers: {
+        'Authorization': `Token ${JSON.parse(localStorage.getItem('my-app-user')).key}`,
+      }
+    }
+    // this.handleSearch()
     // add url to get request that returns user's groups
-    axios.get(`${BASE_URL}/api/v1/`)
+    axios.get(`${BASE_URL}/api/v1/`, options)
     .then(res => {
       console.log(res);
         this.setState({groups: res.data})
@@ -103,12 +105,13 @@ class Spotter extends Component {
   render() {
     // console.log('props', this.props)
     return  (
-      <div className="container">     
+      <div className="container">
+        <Search/>    
       <div className="row justify-content-center">
-        <CardDeck  className="w-100 mt-5">
+        <CardDeck  className="w-100 mt-5 mb-3">
           <Card className="col col-md-6 spot-img-card">
             <Row>
-            <Card.Img src={this.state.beer_label_hd || spotter_logo} className="col spot-img" />
+            <Card.Img src={this.state.beer_label_hd || spotter_logo} alt="#" className="col spot-img" />
             </Row>
           </Card>
           <Card className="col col-md-6 card-style">
@@ -133,12 +136,12 @@ class Spotter extends Component {
               </Dropdown.Menu>
               </Dropdown>
               <div className='w-100'></div>
-              <Button  onClick={this.handleSearch} className="mt-3" >New Beer</Button>
-              <div className="mt-4 row justify-content-center"><img src={untappd_logo} className="logo col"/></div>
+              <Button  onClick={this.handleSearch} className="mt-3" >Im Feeling adventurous!</Button>
+              <div className="mt-4 row justify-content-center"><img src={untappd_logo} alt="untappd logo" className="logo col"/></div>
           </Card.Body>
         </Card>
         </CardDeck>
-      </div>
+      </div> 
     </div> 
     )
   }

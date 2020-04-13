@@ -85,6 +85,10 @@ class ProfileEdit extends Component {
 
   render() {
     // console.log('props', this.props)
+    const profile = JSON.parse(localStorage.getItem('my-app-user')).profile;
+    if(!profile) {
+      this.props.history.push(`/profilesetup`);
+    }
     return  (
         <div className="d-flex justify-content-center create-profile-container mt-5">
             <Form className="profile-form" onSubmit={this.handleSubmit}>
@@ -101,11 +105,11 @@ class ProfileEdit extends Component {
                     <Form.Control  type="text" name="location" value={this.state.location} onChange={this.handleChange} placeholder='Greenville, SC' required />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label className="Form-label"> Birth date:</Form.Label>
-                    <Form.Control  type="date" name="birthdate" value={this.state.birthdate} onChange={this.handleChange} placeholder='mm/dd/yyyy' required />
-                    <Form.Text className="text-muted">
+                    {/* <Form.Label className="Form-label"> Birth date:</Form.Label> */}
+                    {/* <Form.Control  type="date" name="birthdate" value={this.state.birthdate} onChange={this.handleChange} placeholder='mm/dd/yyyy' required /> */}
+                    {/* <Form.Text className="text-muted">
                             This will not be displayed on your profile page.
-                    </Form.Text>
+                    </Form.Text> */}
                 </Form.Group>
                 <Form.Group className="mb-5">
                     <Form.Label>Upload an Avatar Image</Form.Label>

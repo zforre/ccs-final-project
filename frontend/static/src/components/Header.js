@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from "axios";
-import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap';
+import {Navbar, Nav} from 'react-bootstrap';
 
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
@@ -74,8 +74,6 @@ class NavBar extends Component {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
                         <Nav.Link href="/profile/user">Profile</Nav.Link>
-              {/* <Nav.Link href="/signup">Create an Account</Nav.Link>
-               <Nav.Link href="/login">Log In</Nav.Link> */}
                         <Nav.Link onClick={this.logout} href="/login">Log Out</Nav.Link>
                     </Nav>
                     
@@ -89,10 +87,8 @@ class NavBar extends Component {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
-                 {/* <Nav.Link href="/profile/user">Profile</Nav.Link> */}
                             <Nav.Link href="/signup">Create an Account</Nav.Link>
                             <Nav.Link href="/login">Log In</Nav.Link>
-                 {/* <Nav.Link onClick={logOut} href="/login">Log Out</Nav.Link> */}
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
